@@ -147,7 +147,6 @@ apigClientFactory.newClient = function (config) {
         if(additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
-
         var structuresMenuGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/structures/menu').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
@@ -158,7 +157,7 @@ apigClientFactory.newClient = function (config) {
 
         structuresMenuGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresMenuGetRequest.headers["Content-Type"] = "application/json";
-
+        
         return apiGatewayClient.makeRequest(structuresMenuGetRequest, authType, additionalParams, config.apiKey);
     };
 
@@ -289,22 +288,22 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuProductGetRequest, authType, additionalParams, config.apiKey);
     };
 
-
     apigClient.structuresMenuRevpashGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
 
-        apiGateway.core.utils.assertParametersDefined(params, ['menuid', 'structureid', 'start', 'forecastid', 'stop'], ['body']);
-
-        var structuresMenuRevpashGetRequest = {
+        apiGateway.core.utils.assertParametersDefined(params, ['menuid'], ['body']);
+        var structureProductsGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/structures/menu/revpash').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid', 'structureid', 'start', 'forecastid', 'stop']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid']),
             body: body
         };
 
+        structureProductsGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structureProductsGetRequest.headers["Content-Type"] = "application/json";
 
-        return apiGatewayClient.makeRequest(structuresMenuRevpashGetRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(structureProductsGetRequest, authType, additionalParams, config.apiKey);
     };
 
 
