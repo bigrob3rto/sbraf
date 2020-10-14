@@ -323,7 +323,7 @@ apigClientFactory.newClient = function (config) {
         structuresAdminPostRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresAdminPostRequest.headers["Content-Type"] = "application/json";
 
-        console.log("structuresAdminPostRequest",structuresAdminPostRequest);
+        // console.log("structuresAdminPostRequest",structuresAdminPostRequest);
 
         return apiGatewayClient.makeRequest(structuresAdminPostRequest, authType, additionalParams, config.apiKey);
     };
