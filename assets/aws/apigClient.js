@@ -244,8 +244,9 @@ apigClientFactory.newClient = function (config) {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/structures/menu/forecast').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid','start','stop', 'structureid']),
-            //queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid']),
+            // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid','start','stop', 'structureid']),
+            // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start','stop', 'structureid']),
             body: body
         };
 
