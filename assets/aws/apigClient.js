@@ -329,6 +329,28 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresAdminPostRequest, authType, additionalParams, config.apiKey);
     };
 
+    // delete request
+    apigClient.structuresAdminDelete = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+
+        var structuresAdminPostRequest = {
+            verb: 'delete'.toUpperCase(),   // DELETE request
+            path: pathComponent + uritemplate('/structures/admin').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+
+        structuresAdminPostRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structuresAdminPostRequest.headers["Content-Type"] = "application/json";
+        structuresAdminPostRequest.headers["Access-Control-Allow-Methods"] =  "GET, POST, OPTIONS, PUT, DELETE";
+
+        // console.log("structuresAdminPostRequest",structuresAdminPostRequest);
+
+        return apiGatewayClient.makeRequest(structuresAdminPostRequest, authType, additionalParams, config.apiKey);
+    }
 
     return apigClient;
 };
