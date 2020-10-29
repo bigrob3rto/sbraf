@@ -308,6 +308,9 @@ apigClientFactory.newClient = function (config) {
     };
 
 
+    /*****************************************************************************************
+     * 
+     */
     apigClient.structuresAdminPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
 
@@ -329,7 +332,9 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresAdminPostRequest, authType, additionalParams, config.apiKey);
     };
 
-    // delete request
+    /*******************************************************************************************
+     * delete request
+     */
     apigClient.structuresAdminDelete = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
 
@@ -345,7 +350,7 @@ apigClientFactory.newClient = function (config) {
 
         structuresAdminPostRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresAdminPostRequest.headers["Content-Type"] = "application/json";
-        structuresAdminPostRequest.headers["Access-Control-Allow-Methods"] =  "GET, POST, OPTIONS, PUT, DELETE";
+        // structuresAdminPostRequest.headers["Access-Control-Allow-Methods"] =  "GET, POST, OPTIONS, PUT, DELETE";
 
         // console.log("structuresAdminPostRequest",structuresAdminPostRequest);
 
