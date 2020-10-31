@@ -246,7 +246,7 @@ apigClientFactory.newClient = function (config) {
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid','start','stop', 'structureid']),
             // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start','stop', 'structureid']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start','stop', 'structureid','offset','limit']),
             body: body
         };
 
