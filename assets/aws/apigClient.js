@@ -83,6 +83,9 @@ apigClientFactory.newClient = function (config) {
 
 
 
+    /******************************************************************************
+     *  get Structures
+     */
     apigClient.structuresAdmin = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
 
@@ -96,6 +99,7 @@ apigClientFactory.newClient = function (config) {
 
         structuresAdminGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresAdminGetRequest.headers["Content-Type"] = "application/json";
+        // structuresAdminGetRequest.headers["Access-Control-Allow-Origin"] =  "http://localhost:4200";
 
         console.debug("Header", structuresAdminGetRequest.headers);
 
