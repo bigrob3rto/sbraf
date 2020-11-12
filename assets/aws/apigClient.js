@@ -15,8 +15,8 @@
 
 var apigClientFactory = {};
 apigClientFactory.newClient = function (config) {
-    var apigClient = { };
-    if(config === undefined) {
+    var apigClient = {};
+    if (config === undefined) {
         config = {
             accessKey: '',
             secretKey: '',
@@ -27,27 +27,27 @@ apigClientFactory.newClient = function (config) {
             defaultAcceptType: 'application/json'
         };
     }
-    if(config.accessKey === undefined) {
+    if (config.accessKey === undefined) {
         config.accessKey = '';
     }
-    if(config.secretKey === undefined) {
+    if (config.secretKey === undefined) {
         config.secretKey = '';
     }
-    if(config.apiKey === undefined) {
+    if (config.apiKey === undefined) {
         config.apiKey = '';
     }
-    if(config.sessionToken === undefined) {
+    if (config.sessionToken === undefined) {
         config.sessionToken = '';
     }
-    if(config.region === undefined) {
+    if (config.region === undefined) {
         config.region = 'us-east-1';
     }
     //If defaultContentType is not defined then default to application/json
-    if(config.defaultContentType === undefined) {
+    if (config.defaultContentType === undefined) {
         config.defaultContentType = 'application/json';
     }
     //If defaultAcceptType is not defined then default to application/json
-    if(config.defaultAcceptType === undefined) {
+    if (config.defaultAcceptType === undefined) {
         config.defaultAcceptType = 'application/json';
     }
 
@@ -87,7 +87,7 @@ apigClientFactory.newClient = function (config) {
      *  get Structures
      */
     apigClient.structuresAdmin = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
 
         var structuresAdminGetRequest = {
@@ -108,7 +108,7 @@ apigClientFactory.newClient = function (config) {
 
 
     apigClient.structuresAdminGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
 
@@ -130,7 +130,7 @@ apigClientFactory.newClient = function (config) {
 
 
     apigClient.structuresAnalistGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
 
@@ -148,7 +148,7 @@ apigClientFactory.newClient = function (config) {
 
 
     apigClient.structuresMenu = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
         var structuresMenuGetRequest = {
@@ -161,13 +161,13 @@ apigClientFactory.newClient = function (config) {
 
         structuresMenuGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresMenuGetRequest.headers["Content-Type"] = "application/json";
-        
+
         return apiGatewayClient.makeRequest(structuresMenuGetRequest, authType, additionalParams, config.apiKey);
     };
 
 
     apigClient.structureProductsGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
         var structureProductsGetRequest = {
@@ -186,7 +186,7 @@ apigClientFactory.newClient = function (config) {
 
 
     apigClient.structuresMenuGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid', 'menuid'], ['body']);
 
@@ -203,7 +203,7 @@ apigClientFactory.newClient = function (config) {
     };
 
     apigClient.structuresEngineeringInfoGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
 
@@ -211,7 +211,7 @@ apigClientFactory.newClient = function (config) {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/structures/menu/engineering').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid', 'start','stop']),            
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid', 'start', 'stop']),
             body: body
         };
 
@@ -223,7 +223,7 @@ apigClientFactory.newClient = function (config) {
     };
 
     apigClient.structuresMenuForecastGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['menuid', 'start', 'forecastid', 'stop', 'structureid'], ['body']);
 
@@ -239,8 +239,13 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuForecastGetRequest, authType, additionalParams, config.apiKey);
     };
 
-    apigClient.structuresForecastInfoGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+
+    /***********************************************************************************************
+     * get orders from AWS / DB
+     */
+    apigClient.structuresForecastInfoGet = function (params, gzip) {
+        // if(additionalParams === undefined) { additionalParams = {}; }
+        additionalParams = {};
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
 
@@ -250,7 +255,32 @@ apigClientFactory.newClient = function (config) {
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid','start','stop', 'structureid']),
             // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start','stop', 'structureid','offset','limit']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start', 'stop', 'structureid', 'offset', 'limit']),
+            body: ""
+        };
+
+        structuresMenuForecastGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structuresMenuForecastGetRequest.headers["Content-Type"] = "application/json";
+        // if (gzip)
+        //     structuresMenuForecastGetRequest.headers["Accept-Encoding"] = "gzip";
+
+        return apiGatewayClient.makeRequest(structuresMenuForecastGetRequest, authType, additionalParams, config.apiKey);
+    };
+
+
+
+    apigClient.old_structuresForecastInfoGet = function (params, body, additionalParams) {
+        if (additionalParams === undefined) { additionalParams = {}; }
+
+        apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
+
+        var structuresMenuForecastGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/structures/menu/forecast').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['menuid','start','stop', 'structureid']),
+            // queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start', 'stop', 'structureid', 'offset', 'limit']),
             body: body
         };
 
@@ -261,9 +291,8 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuForecastGetRequest, authType, additionalParams, config.apiKey);
     };
 
-
     apigClient.structuresMenuProduct = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         var structuresMenuProductGetRequest = {
             verb: 'get'.toUpperCase(),
@@ -277,7 +306,7 @@ apigClientFactory.newClient = function (config) {
     };
 
     apigClient.structuresMenuProductGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['productid'], ['body']);
 
@@ -294,7 +323,7 @@ apigClientFactory.newClient = function (config) {
     };
 
     apigClient.structuresMenuRevpashGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['menuid'], ['body']);
         var structureProductsGetRequest = {
@@ -316,7 +345,7 @@ apigClientFactory.newClient = function (config) {
      * 
      */
     apigClient.structuresAdminPost = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
 
@@ -340,7 +369,7 @@ apigClientFactory.newClient = function (config) {
      * delete request
      */
     apigClient.structuresAdminDelete = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
+        if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
 
