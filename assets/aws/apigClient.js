@@ -243,7 +243,7 @@ apigClientFactory.newClient = function (config) {
     /***********************************************************************************************
      * get orders from AWS / DB
      */
-    apigClient.structuresForecastInfoGet = function (params, gzip) {
+    apigClient.structuresForecastInfoGet = function (params) {
         // if(additionalParams === undefined) { additionalParams = {}; }
         additionalParams = {};
 
