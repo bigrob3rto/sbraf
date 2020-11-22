@@ -99,9 +99,15 @@ apigClientFactory.newClient = function (config) {
 
         structuresAdminGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresAdminGetRequest.headers["Content-Type"] = "application/json";
+        // structuresAdminGetRequest.headers["Content-Encoding"] = "gzip, deflate, br";
+        // structuresAdminGetRequest.headers["Accept"] = "*/*";
+        // structuresAdminGetRequest.headers["Access-Control-Allow-Origin"] = "*";
+        // structuresAdminGetRequest.headers["User-Agent"] = "PostmanRuntime/7.26.8";
+        // structuresAdminGetRequest.headers["Connection"] = "keep-alive";
+
         // structuresAdminGetRequest.headers["Access-Control-Allow-Origin"] =  "http://localhost:4200";
 
-        console.debug("Header", structuresAdminGetRequest.headers);
+        // console.log("Header", structuresAdminGetRequest.headers);
 
         return apiGatewayClient.makeRequest(structuresAdminGetRequest, authType, additionalParams, config.apiKey);
     };
@@ -262,11 +268,42 @@ apigClientFactory.newClient = function (config) {
         structuresMenuForecastGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresMenuForecastGetRequest.headers["Content-Type"] = "application/json";
         // if (gzip)
-        //     structuresMenuForecastGetRequest.headers["Accept-Encoding"] = "gzip";
+        // structuresMenuForecastGetRequest.headers["Accept-Encoding"] = "gzip";
 
         return apiGatewayClient.makeRequest(structuresMenuForecastGetRequest, authType, additionalParams, config.apiKey);
     };
 
+
+    /***********************************************************************************************
+     * get orders from AWS / DB - new call with gzip
+     */
+    apigClient.ordersGet = function (params) {
+        // if(additionalParams === undefined) { additionalParams = {}; }
+        additionalParams = {};
+
+        apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
+
+        var structuresOrderGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/structures/menu/orders').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['start', 'stop', 'structureid']),
+            body: ""
+        };
+
+        structuresOrderGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structuresOrderGetRequest.headers["Content-Type"] = "application/json";
+        // structuresOrderGetRequest.headers["Content-Encoding"] = "gzip, deflate, br";   
+        // structuresOrderGetRequest.headers["Accept-Encoding"] = "gzip";
+
+        // structuresOrderGetRequest.headers["Accept"] = "*/*";
+        // structuresOrderGetRequest.headers["Access-Control-Allow-Origin"] = "*";
+        // structuresOrderGetRequest.headers["User-Agent"] = "PostmanRuntime/7.26.8";
+        // structuresOrderGetRequest.headers["Connection"] = "keep-alive";
+
+
+        return apiGatewayClient.makeRequest(structuresOrderGetRequest, authType, additionalParams, config.apiKey);
+    };
 
 
     apigClient.old_structuresForecastInfoGet = function (params, body, additionalParams) {
