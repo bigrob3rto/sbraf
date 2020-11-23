@@ -293,8 +293,9 @@ apigClientFactory.newClient = function (config) {
 
         structuresOrderGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresOrderGetRequest.headers["Content-Type"] = "application/json";
-        // structuresOrderGetRequest.headers["Content-Encoding"] = "gzip, deflate, br";   
-        // structuresOrderGetRequest.headers["Accept-Encoding"] = "gzip";
+        // structuresOrderGetRequest.headers["Access-Control-Allow-Headers"] = "Sbraf-Accept-Encoding";   
+        structuresOrderGetRequest.headers["Sbraf-Accept-Encoding"] = "gzip";
+        // structuresOrderGetRequest.headers["Transfer-Encoding"] = "gzip";
 
         // structuresOrderGetRequest.headers["Accept"] = "*/*";
         // structuresOrderGetRequest.headers["Access-Control-Allow-Origin"] = "*";
