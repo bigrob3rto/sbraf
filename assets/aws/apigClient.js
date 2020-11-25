@@ -171,7 +171,28 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuGetRequest, authType, additionalParams, config.apiKey);
     };
 
+    /***********************************************************************************
+     *  Product Merged
+     */
+    apigClient.structureProductMergeGet = function (params, body, additionalParams) {
+        if (additionalParams === undefined) { additionalParams = {}; }
 
+        apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
+        var structureProductMergedGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/structures/menu/merged-product').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
+            body: body
+        };
+
+        structureProductMergedGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structureProductMergedGetRequest.headers["Content-Type"] = "application/json";
+
+        return apiGatewayClient.makeRequest(structureProductMergedGetRequest, authType, additionalParams, config.apiKey);
+    };
+
+    
     apigClient.structureProductsGet = function (params, body, additionalParams) {
         if (additionalParams === undefined) { additionalParams = {}; }
 
@@ -208,6 +229,9 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuGetRequest, authType, additionalParams, config.apiKey);
     };
 
+    /******************************************************************************************
+     * 
+     */
     apigClient.structuresEngineeringInfoGet = function (params, body, additionalParams) {
         if (additionalParams === undefined) { additionalParams = {}; }
 
@@ -217,7 +241,7 @@ apigClientFactory.newClient = function (config) {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/structures/menu/engineering').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid', 'start', 'stop']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid', 'start', 'stop', 'offset', 'limit']),
             body: body
         };
 
