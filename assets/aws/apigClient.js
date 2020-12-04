@@ -229,6 +229,30 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structuresMenuGetRequest, authType, additionalParams, config.apiKey);
     };
 
+
+/******************************************************************************************
+     *  V2 with datalake
+     */
+    apigClient.engineeringGet = function (params, body, additionalParams) {
+        if (additionalParams === undefined) { additionalParams = {}; }
+
+        apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
+
+        var structuresMenuEngineeringGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/structures/menu/orders/engineered').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid', 'start', 'stop']),
+            body: body
+        };
+
+        structuresMenuEngineeringGetRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structuresMenuEngineeringGetRequest.headers["Content-Type"] = "application/json";
+
+
+        return apiGatewayClient.makeRequest(structuresMenuEngineeringGetRequest, authType, additionalParams, config.apiKey);
+    };
+
     /******************************************************************************************
      * 
      */
