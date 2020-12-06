@@ -9371,16 +9371,13 @@ body {
 
 
 
-/* light theme */
-.sidebar{
-    background-color: white !important;
+/* blue theme */
+.app-header, .sidebar{
+    background-color: #0a2646 !important;
 }
-.sidebar .nav-link, .nav-title, a {
-    color: black !important;
+.app-header a{
+    color:white !important;
 }
-.sidebar .nav-link.active{
-    background: gray !important;
-}
- .sidebar a.disabled { 
-    color:grey !important;
+.app-header .dropdown-item {
+    color:black !important;
 }
