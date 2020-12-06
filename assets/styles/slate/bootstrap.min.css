@@ -10048,6 +10048,7 @@ legend {
     background-color: #1c1e22
 }
 
+/* theme modifiers */
 .app-header, .body{
     background-color: #2f353a !important;
 }
