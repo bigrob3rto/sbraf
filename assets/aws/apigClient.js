@@ -192,7 +192,7 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(structureProductMergedGetRequest, authType, additionalParams, config.apiKey);
     };
 
-    
+
     apigClient.structureProductsGet = function (params, body, additionalParams) {
         if (additionalParams === undefined) { additionalParams = {}; }
 
@@ -230,9 +230,9 @@ apigClientFactory.newClient = function (config) {
     };
 
 
-/******************************************************************************************
-     *  V2 with datalake
-     */
+    /******************************************************************************************
+         *  V2 with datalake
+         */
     apigClient.engineeringGet = function (params, body, additionalParams) {
         if (additionalParams === undefined) { additionalParams = {}; }
 
@@ -475,6 +475,27 @@ apigClientFactory.newClient = function (config) {
 
         return apiGatewayClient.makeRequest(structuresAdminPostRequest, authType, additionalParams, config.apiKey);
     }
+
+    /*******************************************************************************************
+    * Upload request
+    */
+    apigClient.upload = function (params, body, additionalParams) {
+        if (additionalParams === undefined) { additionalParams = {}; }
+
+        apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
+
+        var structuresUploadRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/structures/upload').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['structureid']),
+            body: body
+        };
+        structuresUploadRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
+        structuresUploadRequest.headers["Content-Type"] = "application/json";
+
+        return apiGatewayClient.makeRequest(structuresUploadRequest, authType, additionalParams, config.apiKey);
+    };
 
     return apigClient;
 };
