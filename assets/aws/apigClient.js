@@ -454,8 +454,12 @@ apigClientFactory.newClient = function (config) {
     /*****************************************************************************************
      * 
      */
-    apigClient.dataPostV2 = function (params, body, additionalParams) {
-        if (additionalParams === undefined) { additionalParams = {}; }
+    apigClient.dataPostSigned = function (params, body, additionalParams) {
+        if (additionalParams === undefined) { additionalParams = {
+            headers: {
+                'x-amz-security-token': sessionStorage.getItem('sessionToken')
+              }
+        }; }
 
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
 
@@ -469,10 +473,8 @@ apigClientFactory.newClient = function (config) {
 
         structuresAdminPostRequest.headers["Authorization"] = sessionStorage.getItem("awstkn");
         structuresAdminPostRequest.headers["Content-Type"] = "application/json";
-        structuresAdminPostRequest.headers["Accept"] = "*/*";
-        structuresAdminPostRequest.headers["Access-Control-Allow-Origin"] = "*";
-        structuresAdminPostRequest.headers["Authorization"] = sessionStorage.getItem('awstkn');
-
+        // structuresAdminPostRequest.headers["Accept"] = "*/*";
+        // structuresAdminPostRequest.headers["Access-Control-Allow-Origin"] = "*";
 
         // console.log("structuresAdminPostRequest",structuresAdminPostRequest);
 
