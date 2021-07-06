@@ -509,7 +509,7 @@ apigClientFactory.newClient = function (config) {
     /*******************************************************************************************
     * Upload request
     */
-    apigClient.upload = function (params, body, additionalParams) {
+    apigClient.preUpload = function (params, body, additionalParams) {
         if (additionalParams === undefined) { additionalParams = {}; }
 
         apiGateway.core.utils.assertParametersDefined(params, ['structureid'], ['body']);
