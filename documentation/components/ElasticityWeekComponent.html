@@ -1,0 +1,1773 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@coreui/coreui-free-angular-admin-template documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@coreui/coreui-free-angular-admin-template documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ElasticityWeekComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-elasticity-week</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./elasticity-week.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./elasticity-week.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#columnDefs">columnDefs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#domLayout">domLayout</a>
+                            </li>
+                            <li>
+                                <a href="#getContextMenuItems">getContextMenuItems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridApi">gridApi</a>
+                            </li>
+                            <li>
+                                <a href="#iaModal">iaModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#matrixColDefs">matrixColDefs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#neural">neural</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rowData">rowData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showCompleted">showCompleted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#theme">theme</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#analyse">analyse</a>
+                            </li>
+                            <li>
+                                <a href="#getRowStyle">getRowStyle</a>
+                            </li>
+                            <li>
+                                <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                <a href="#onCellDoubleClicked">onCellDoubleClicked</a>
+                            </li>
+                            <li>
+                                <a href="#onGridReady">onGridReady</a>
+                            </li>
+                            <li>
+                                <a href="#onGridSizeChanged">onGridSizeChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#setFilter">setFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update">update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#weekday">weekday</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#messageService">messageService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(neural: <a href="../injectables/NeuralService.html">NeuralService</a>, awsService: <a href="../injectables/AwsService.html">AwsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:97</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>neural</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NeuralService.html" target="_self" >NeuralService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>awsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AwsService.html" target="_self" >AwsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="messageService"></a>
+                        <b>messageService</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analyse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            analyse
+                        </b>
+                        <a href="#analyse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>analyse()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:303</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRowStyle"></a>
+                    <span class="name">
+                        <b>
+                            getRowStyle
+                        </b>
+                        <a href="#getRowStyle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRowStyle(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ &#x27;font-weight&#x27;: string; }</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                        <b>
+                            hide
+                        </b>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hide()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="358"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:358</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCellDoubleClicked"></a>
+                    <span class="name">
+                        <b>
+                            onCellDoubleClicked
+                        </b>
+                        <a href="#onCellDoubleClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCellDoubleClicked(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="362"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:362</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onGridReady"></a>
+                    <span class="name">
+                        <b>
+                            onGridReady
+                        </b>
+                        <a href="#onGridReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onGridReady(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:176</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onGridSizeChanged"></a>
+                    <span class="name">
+                        <b>
+                            onGridSizeChanged
+                        </b>
+                        <a href="#onGridSizeChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onGridSizeChanged(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFilter"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            setFilter
+                        </b>
+                        <a href="#setFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFilter(filterModel)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:191</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filterModel</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(rowData, columnsDefs, INIT_COL_NUM)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>+
+update table</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rowData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>columnsDefs</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>INIT_COL_NUM</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weekday"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            weekday
+                        </b>
+                        <a href="#weekday"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>weekday(date)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="286"
+                            class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:286</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columnDefs"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            columnDefs</b>
+                            <a href="#columnDefs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    {
+      headerName: &#x27;Category&#x27;, field: &#x27;product_category_id&#x27;, width: 150, resizable: true, sortable: true,
+      filter: &#x27;agTextColumnFilter&#x27;, initialSort: &#x27;asc&#x27;,
+    },
+    {
+      headerName: &#x27;Product&#x27;, field: &#x27;product_merged_name&#x27;, width: 150, resizable: true, sortable: true,
+      filter: &#x27;agTextColumnFilter&#x27;,
+    },
+    // {
+    //   headerName: &#x27;ID&#x27;, field: &#x27;product_id&#x27;, width: 100, resizable: true, sortable: true,
+    //   filter: &#x27;agTextColumnFilter&#x27;,
+    // },
+    // {
+    //   headerName: &#x27;Food_cost&#x27;, field: &#x27;product_food_cost_ext&#x27;, resizable: true,
+    //   sortable: true, filter: &#x27;agTextColumnFilter&#x27;, width: 110,
+    //   valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    {
+      headerName: &#x27;Sell_price&#x27;, field: &#x27;product_sellprice&#x27;, width: 110,
+      resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+      valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+      // cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+      // cellStyle: {textAlign: &quot;right&quot;}
+    },
+    {
+      headerName: &#x27;PAC&#x27;, field: &#x27;item_pac&#x27;, width: 110, resizable: true,
+      valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+      // cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+      // cellStyle: {textAlign: &quot;right&quot;}
+    },
+
+    // {
+    //   headerName: &#x27;# Orders&#x27;, field: &#x27;orders&#x27;, width: 110,
+    //   resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+
+    // {
+    //   headerName: &#x27;Tot Qty&#x27;, field: &#x27;item_quantity_sum&#x27;, sortable: true, resizable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    // {
+    //   headerName: &#x27;Tot_Gross&#x27;, field: &#x27;item_total_gross&#x27;, width: 180,
+    //   resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.data.item_total_gross),
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    // { headerName: &#x27;ADC (RICAVO MEDIO EFFETTIVO)&#x27;, field: &#x27;item_adc&#x27;, resizable: true },
+    // {
+    //   headerName: &#x27;IGP (INDICE GRADIMENTO PREZZO)&#x27;, field: &#x27;item_igp&#x27;, resizable: true,
+    //   valueFormatter: params &#x3D;&gt; TableLib.percentageFormatter(params.data.item_igp),
+    //   cellStyle: function (params) {
+    //     if (Number(params.value) &lt;&#x3D; 85) return { backgroundColor: &#x27;red&#x27; };
+    //     if (Number(params.value) &lt; 95) return { backgroundColor: &#x27;orange&#x27; };
+    //     if (Number(params.value) &lt; 104) return { backgroundColor: &#x27;#8BC34A&#x27; };
+    //     if (Number(params.value) &lt; 109) return { backgroundColor: &#x27;#689F38&#x27; };
+    //     return { backgroundColor: &#x27;#69F0AE&#x27; };
+    //   }
+    // },
+
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="domLayout"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            domLayout</b>
+                            <a href="#domLayout"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;autoHeight&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getContextMenuItems"></a>
+                        <span class="name">
+                            <b>
+                            getContextMenuItems</b>
+                            <a href="#getContextMenuItems"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="242" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:242</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gridApi"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            gridApi</b>
+                            <a href="#gridApi"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GridApi</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iaModal"></a>
+                        <span class="name">
+                            <b>
+                            iaModal</b>
+                            <a href="#iaModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/IaModalComponent.html" target="_self" >IaModalComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(IaModalComponent, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="matrixColDefs"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            matrixColDefs</b>
+                            <a href="#matrixColDefs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="neural"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            neural</b>
+                            <a href="#neural"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/NeuralService.html" target="_self" >NeuralService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:100</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rowData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            rowData</b>
+                            <a href="#rowData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showCompleted"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            showCompleted</b>
+                            <a href="#showCompleted"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="theme"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            theme</b>
+                            <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title</b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;Elasticity&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/analysis/dbd/elasticity_week/elasticity-week.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, Input, OnInit, QueryList, ViewChild, ViewChildren } from &#x27;@angular/core&#x27;;
+
+
+import { TableLib } from &#x27;../../../prod-table/lib/table-lib&#x27;;
+import { GridApi } from &#x27;ag-grid-community&#x27;;
+import { AwsService } from &#x27;../../../service/aws.service&#x27;;
+// import { NeuralComponent } from &#x27;../neural/neural.component&#x27;;
+import { IaModalComponent } from &#x27;./iaModal.component&#x27;;
+import { NeuralService } from &#x27;../../../service/neural.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-elasticity-week&#x27;,
+  templateUrl: &#x27;./elasticity-week.component.html&#x27;,
+  styleUrls: [&#x27;./elasticity-week.component.css&#x27;]
+})
+
+
+
+export class ElasticityWeekComponent {
+  title &#x3D; &quot;Elasticity&quot;;
+  @Input() messageService;    //refernce to message Service
+  public gridApi: GridApi;
+  public rowData;
+  public domLayout &#x3D; &#x27;autoHeight&#x27;;
+  private matrixColDefs;
+
+  public theme;
+  public showCompleted &#x3D; false;
+
+  // @ViewChild(NeuralComponent, { static: false }) neuralComponent: NeuralComponent;
+  @ViewChild(IaModalComponent, { static: false }) iaModal: IaModalComponent;
+
+
+  public columnDefs &#x3D; [
+    {
+      headerName: &#x27;Category&#x27;, field: &#x27;product_category_id&#x27;, width: 150, resizable: true, sortable: true,
+      filter: &#x27;agTextColumnFilter&#x27;, initialSort: &#x27;asc&#x27;,
+    },
+    {
+      headerName: &#x27;Product&#x27;, field: &#x27;product_merged_name&#x27;, width: 150, resizable: true, sortable: true,
+      filter: &#x27;agTextColumnFilter&#x27;,
+    },
+    // {
+    //   headerName: &#x27;ID&#x27;, field: &#x27;product_id&#x27;, width: 100, resizable: true, sortable: true,
+    //   filter: &#x27;agTextColumnFilter&#x27;,
+    // },
+    // {
+    //   headerName: &#x27;Food_cost&#x27;, field: &#x27;product_food_cost_ext&#x27;, resizable: true,
+    //   sortable: true, filter: &#x27;agTextColumnFilter&#x27;, width: 110,
+    //   valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    {
+      headerName: &#x27;Sell_price&#x27;, field: &#x27;product_sellprice&#x27;, width: 110,
+      resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+      valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+      // cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+      // cellStyle: {textAlign: &quot;right&quot;}
+    },
+    {
+      headerName: &#x27;PAC&#x27;, field: &#x27;item_pac&#x27;, width: 110, resizable: true,
+      valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.value),
+      // cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+      // cellStyle: {textAlign: &quot;right&quot;}
+    },
+
+    // {
+    //   headerName: &#x27;# Orders&#x27;, field: &#x27;orders&#x27;, width: 110,
+    //   resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+
+    // {
+    //   headerName: &#x27;Tot Qty&#x27;, field: &#x27;item_quantity_sum&#x27;, sortable: true, resizable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    // {
+    //   headerName: &#x27;Tot_Gross&#x27;, field: &#x27;item_total_gross&#x27;, width: 180,
+    //   resizable: true, sortable: true, filter: &#x27;agTextColumnFilter&#x27;,
+    //   valueFormatter: params &#x3D;&gt; TableLib.currencyFormatter(params.data.item_total_gross),
+    //   cellStyle: { &#x27;text-align&#x27;: &#x27;center&#x27; }
+    // },
+    // { headerName: &#x27;ADC (RICAVO MEDIO EFFETTIVO)&#x27;, field: &#x27;item_adc&#x27;, resizable: true },
+    // {
+    //   headerName: &#x27;IGP (INDICE GRADIMENTO PREZZO)&#x27;, field: &#x27;item_igp&#x27;, resizable: true,
+    //   valueFormatter: params &#x3D;&gt; TableLib.percentageFormatter(params.data.item_igp),
+    //   cellStyle: function (params) {
+    //     if (Number(params.value) &lt;&#x3D; 85) return { backgroundColor: &#x27;red&#x27; };
+    //     if (Number(params.value) &lt; 95) return { backgroundColor: &#x27;orange&#x27; };
+    //     if (Number(params.value) &lt; 104) return { backgroundColor: &#x27;#8BC34A&#x27; };
+    //     if (Number(params.value) &lt; 109) return { backgroundColor: &#x27;#689F38&#x27; };
+    //     return { backgroundColor: &#x27;#69F0AE&#x27; };
+    //   }
+    // },
+
+  ];
+
+  constructor(
+    public neural: NeuralService,
+    private awsService: AwsService) {
+    // load theme from local storage
+    this.theme &#x3D; localStorage.getItem(&#x27;ag-grid-theme&#x27;);
+
+  }
+
+
+  /**************************************************************+
+   * update table
+   */
+  async update(rowData, columnsDefs, INIT_COL_NUM) {
+    //clone array (passed byRef)
+    const _rowData &#x3D; JSON.parse(JSON.stringify(rowData));
+    this.gridApi.setRowData(_rowData);
+
+    const catArr &#x3D; await this.awsService.getCategories();
+
+    // parent columns defs - delete first 4
+    this.matrixColDefs &#x3D; columnsDefs.slice(INIT_COL_NUM, columnsDefs.length);
+
+    // set format as currency and align center
+    this.matrixColDefs.forEach(col &#x3D;&gt; {
+      col.valueFormatter &#x3D; (params) &#x3D;&gt; {
+        if (params.data.product_name &#x3D;&#x3D; &#x27;Total_Qty&#x27;)
+          return;
+        if (params.data.product_name &#x3D;&#x3D; &#x27;Index_IGP&#x27;)
+          return TableLib.percentageFormatter(params.value);
+        return TableLib.currencyFormatter(params.value);
+      };
+      // align cells on pinned top table
+      col.cellStyle &#x3D; () &#x3D;&gt; { return { textAlign: &#x27;left&#x27; } };
+    });
+    this.gridApi.setColumnDefs(this.columnDefs.concat(this.matrixColDefs));  // concat to existing coldefs
+
+    // array of all sell prices
+    const priceArr &#x3D; _rowData.map(x &#x3D;&gt; x &#x3D; x.product_sellprice);
+    // harmonic mean of prices
+    const hmean &#x3D; TableLib.harmonicMean(priceArr);
+
+    let gross_row &#x3D; { product_name: &#x27;Total_Gross&#x27; }
+    let qty_row &#x3D; { product_name: &#x27;Total_Qty&#x27; }
+    let adc_row &#x3D; { product_name: &#x27;Index_ADC&#x27; }
+    let igp_row &#x3D; { product_name: &#x27;Index_IGP&#x27; }
+
+    // replace qty with revenue
+    _rowData.forEach(row &#x3D;&gt; {
+      // this.gridApi.forEachNodeAfterFilter(node &#x3D;&gt; {
+      // const row &#x3D; node.data;
+      // cat ID &#x3D;&gt; cat Name
+      const catFound &#x3D; catArr.find(c &#x3D;&gt; c.categoryid &#x3D;&#x3D; row.product_category_id);
+      if (catFound)
+        row.product_category_id &#x3D; catFound.name;
+      // set PAC
+      row.item_pac &#x3D; +hmean.toFixed(2);
+      // iterate through columns
+      this.matrixColDefs.forEach(col &#x3D;&gt; {
+        // qty &#x3D;&gt; sell revenue
+        if (row[col.field]) {
+          // sum quantity
+          qty_row[col.field] &#x3D; qty_row[col.field] ? qty_row[col.field] + row[col.field] : row[col.field];
+          // transform qty to gross
+          row[col.field] &#x3D; row[col.field] * row.product_sellprice;
+          // sum gross
+          gross_row[col.field] &#x3D; gross_row[col.field] ? gross_row[col.field] + row[col.field] : row[col.field];
+          adc_row[col.field] &#x3D; gross_row[col.field] / qty_row[col.field];
+          igp_row[col.field] &#x3D; adc_row[col.field] / row.item_pac * 100;
+
+        }
+      });
+    });
+    this.rowData &#x3D; _rowData; // set table inner data
+
+    this.gridApi.setPinnedTopRowData([gross_row, qty_row, adc_row, igp_row]);
+  }
+
+  onGridReady(params) {
+    this.gridApi &#x3D; params.api;
+  }
+
+  onGridSizeChanged(params) {
+    //params.api.sizeColumnsToFit();    // do not autofit
+  }
+
+  getRowStyle(params) {
+    if (params.node.rowPinned &amp;&amp; params.node.data.product_name &#x3D;&#x3D; &#x27;Index_IGP&#x27;) {
+      return { &#x27;font-weight&#x27;: &#x27;bold&#x27; };
+    }
+  };
+
+
+  async setFilter(filterModel) {
+    this.gridApi.setFilterModel(filterModel);
+    // recalculate percentage
+    let priceArr: number[] &#x3D; [];
+    // convert to array of prices
+    this.gridApi.forEachNodeAfterFilter(row &#x3D;&gt; {
+      priceArr.push(Number(row.data.product_sellprice));
+    });
+    const hmean &#x3D; TableLib.harmonicMean(priceArr);
+    this.gridApi.forEachNodeAfterFilter(row &#x3D;&gt; {
+      row.data.item_pac &#x3D; hmean.toFixed(2);
+    });
+
+    const catArr &#x3D; await this.awsService.getCategories();
+    let gross_row &#x3D; { product_name: &#x27;Total_Gross&#x27; }
+    let qty_row &#x3D; { product_name: &#x27;Total_Qty&#x27; }
+    let adc_row &#x3D; { product_name: &#x27;Index_ADC&#x27; }
+    let igp_row &#x3D; { product_name: &#x27;Index_IGP&#x27; }
+    // replace qty with revenue
+    // _rowData.forEach(row &#x3D;&gt; {
+    this.gridApi.forEachNodeAfterFilter(node &#x3D;&gt; {
+      const row &#x3D; node.data;
+
+      // iterate through columns
+      this.matrixColDefs.forEach(col &#x3D;&gt; {
+        // qty &#x3D;&gt; sell revenue
+        if (row[col.field]) {
+          // sum quantity
+          qty_row[col.field] &#x3D; qty_row[col.field] ? qty_row[col.field] + row[col.field] : row[col.field];
+
+          // transform qty to gross
+          row[col.field] &#x3D; row[col.field] * row.product_sellprice;
+          // sum gross
+          gross_row[col.field] &#x3D; gross_row[col.field] ? gross_row[col.field] + row[col.field] : row[col.field];
+          adc_row[col.field] &#x3D; gross_row[col.field] / qty_row[col.field];
+          igp_row[col.field] &#x3D; adc_row[col.field] / row.item_pac * 100;
+
+          qty_row[col.field] &#x3D; Number(qty_row[col.field].toFixed(1));
+        }
+      });
+    });
+    // this.rowData &#x3D; _rowData; // set table inner data
+
+    this.gridApi.setPinnedTopRowData([gross_row, qty_row, adc_row, igp_row]);
+
+
+    // console.log(priceArr);
+    this.gridApi.refreshCells();
+  }
+
+
+  getContextMenuItems &#x3D; (params) &#x3D;&gt; {
+    const self &#x3D; this;
+    var result &#x3D; [
+      {
+        name: &#x27;Autosize Columns&#x27;,           // copy field
+        action: () &#x3D;&gt; {
+          params.api.sizeColumnsToFit();
+        }
+      },
+      // {
+      //   name: &#x27;Copy&#x27;,
+      //   action: () &#x3D;&gt; {
+      //     this.onMenuClipboard(params.value);
+      //   }
+      // },
+      {
+        name: &#x27;Export&#x27;,
+        tooltip: &#x27;Export table&#x27;,
+        subMenu: [
+          {
+            name: &#x27;Export as csv&#x27;,
+            action: () &#x3D;&gt; {
+              params.api.exportDataAsCsv(params);
+            }
+          },
+          {
+            name: &#x27;Export to Excel&#x27;,
+            action: () &#x3D;&gt; {
+              params.api.exportDataAsExcel(params);
+            }
+          }
+        ] //end row submenu
+      },
+      {
+        name: &#x27;IA analysis&#x27;,           // copy field
+        action: () &#x3D;&gt; {
+          this.iaModal.open(params.node.data, self.neural);
+        }
+      },
+    ];
+    return result;
+  }
+
+
+  private weekday(date) {
+    const str &#x3D; date.substring(date.length - 3);
+
+    const map &#x3D; {
+      &#x27;Mon&#x27;: 1,
+      &#x27;Tue&#x27;: 2,
+      &#x27;Wed&#x27;: 3,
+      &#x27;Thu&#x27;: 4,
+      &#x27;Fri&#x27;: 5,
+      &#x27;Sat&#x27;: 6,
+      &#x27;Sun&#x27;: 7
+    }
+
+    return map[str];
+  }
+
+
+  async analyse() {
+    this.showCompleted &#x3D; false;
+    let trainData &#x3D; [];
+    // get data from table
+    this.gridApi.forEachNodeAfterFilter(node &#x3D;&gt; {
+      const row &#x3D; node.data;
+
+      // iterate through columns
+      this.matrixColDefs.forEach(col &#x3D;&gt; {
+        if (row[col.field]) {
+          const data &#x3D; {
+            price: Number(row.product_sellprice) - Number(row.product_foodcost),
+            weekday: this.weekday(col.field),
+            revenue: Number(row[col.field]),
+            // incidence : (Number(row.product_sellprice)-Number(row.product_foodcost)) / Number(row.product_sellprice)
+            foodcost: Number(row.product_foodcost)
+          }
+          trainData.push(data);
+          // console.log(row[col.field]);
+        }
+      });
+    });
+
+    const food_costs &#x3D; trainData.map(r &#x3D;&gt; r.foodcost);
+    const max_price &#x3D; Math.max(...trainData.map(r &#x3D;&gt; r.price));
+
+    for (let day &#x3D; 1; day &lt;&#x3D; 7; day++) {
+      food_costs.forEach(fc &#x3D;&gt; {
+        // add init zeroes
+        const data_0 &#x3D; {
+          price: 0,
+          weekday: day,
+          foodcost: fc,
+          revenue: 0,
+        }
+        trainData.push(data_0);
+
+        // add trailing zeroes
+        const data_1 &#x3D; {
+          price: 2 * max_price,
+          weekday: day,
+          foodcost: fc,
+          revenue: 0,
+        }
+        trainData.push(data_1);
+      })
+    }
+
+
+    // console.log(&quot;traindata&quot;,trainData );
+    this.neural.trainData &#x3D; trainData;
+    await this.neural.run();
+    this.showCompleted &#x3D; true;
+  }
+
+  hide() {
+    this.neural.hide();
+  }
+
+  onCellDoubleClicked(params) {
+    // console.log(params.node.data);
+    this.iaModal.open(params.node.data, this.neural);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;rowData&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-warning&quot; style&#x3D;&quot;margin: 20px; width: 100px;&quot; (click)&#x3D;&quot;analyse()&quot;&gt;IA analyse&lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-secondary&quot; style&#x3D;&quot;margin: 20px; width: 100px;&quot; (click)&#x3D;&quot;hide()&quot;&gt;IA Toggle&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;alert alert-success&quot; role&#x3D;&quot;alert&quot; *ngIf&#x3D;&quot;showCompleted&quot;&gt;
+    Neural Anaysis complete - double click on item to see result!
+  &lt;/div&gt;
+&lt;ag-grid-angular #agGrid style&#x3D;&quot;width: 100%;&quot; [ngClass]&#x3D;&quot;theme&quot; [rowData]&#x3D;&quot;rowData&quot; [columnDefs]&#x3D;&quot;columnDefs&quot;
+    [animateRows]&#x3D;&quot;true&quot; [enterMovesDown]&#x3D;&quot;true&quot; [paginationAutoPageSize]&#x3D;false [singleClickEdit]&#x3D;&quot;false&quot;
+    [enterMovesDownAfterEdit]&#x3D;&quot;true&quot; [pagination]&#x3D;&quot;true&quot; [enableCellTextSelection]&#x3D;&quot;true&quot; [getRowStyle]&#x3D;&quot;getRowStyle&quot;
+    [getContextMenuItems]&#x3D;&quot;getContextMenuItems&quot; [domLayout]&#x3D;&quot;domLayout&quot; (gridSizeChanged)&#x3D;&quot;onGridSizeChanged($event)&quot;
+    (cellDoubleClicked)&#x3D;&quot;onCellDoubleClicked($event)&quot;
+    (gridReady)&#x3D;&quot;onGridReady($event)&quot;&gt;
+&lt;/ag-grid-angular&gt;
+
+&lt;!-- Modal --&gt;
+&lt;ia-modal-component&gt;&lt;/ia-modal-component&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./elasticity-week.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.horizontal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body{
+    font-size:12px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="rowData">    <button class="btn btn-warning" style="margin: 20px; width: 100px;" (click)="analyse()">IA analyse</button>    <button class="btn btn-secondary" style="margin: 20px; width: 100px;" (click)="hide()">IA Toggle</button></div><div class="alert alert-success" role="alert" *ngIf="showCompleted">    Neural Anaysis complete - double click on item to see result!  </div><ag-grid-angular #agGrid style="width: 100%;" [ngClass]="theme" [rowData]="rowData" [columnDefs]="columnDefs"    [animateRows]="true" [enterMovesDown]="true" [paginationAutoPageSize]=false [singleClickEdit]="false"    [enterMovesDownAfterEdit]="true" [pagination]="true" [enableCellTextSelection]="true" [getRowStyle]="getRowStyle"    [getContextMenuItems]="getContextMenuItems" [domLayout]="domLayout" (gridSizeChanged)="onGridSizeChanged($event)"    (cellDoubleClicked)="onCellDoubleClicked($event)"    (gridReady)="onGridReady($event)"></ag-grid-angular><!-- Modal --><ia-modal-component></ia-modal-component></div>'
+    var COMPONENTS = [{'name': 'AgGridDatePickerComponent', 'selector': 'date-editor-cell'},{'name': 'AlertsComponent', 'selector': ''},{'name': 'AppComponent', 'selector': 'body'},{'name': 'BadgesComponent', 'selector': ''},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CardsComponent', 'selector': ''},{'name': 'CarouselsComponent', 'selector': ''},{'name': 'CategoryTableComponent', 'selector': 'app-cat-table'},{'name': 'CollapsesComponent', 'selector': ''},{'name': 'CompareChartComponent', 'selector': 'app-comp-chart'},{'name': 'CompareComponent', 'selector': 'app-compare'},{'name': 'CoreUIIconsComponent', 'selector': ''},{'name': 'DashboardComponent', 'selector': ''},{'name': 'DateRangeComponent', 'selector': 'app-daterange'},{'name': 'DBDComponent', 'selector': 'app-dbd'},{'name': 'DefaultLayoutComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'ElasticityComponent', 'selector': 'app-elasticity'},{'name': 'ElasticityWeekComponent', 'selector': 'app-elasticity-week'},{'name': 'EngineeringComponent', 'selector': 'app-engineering'},{'name': 'EngTotalsComponent', 'selector': 'app-eng-totals'},{'name': 'FlagsComponent', 'selector': ''},{'name': 'FlowAreaComponent', 'selector': 'app-flowarea'},{'name': 'FontAwesomeComponent', 'selector': ''},{'name': 'FormsComponent', 'selector': ''},{'name': 'IaModalComponent', 'selector': 'ia-modal-component'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': ''},{'name': 'MatrixChartComponent', 'selector': 'app-matrixchart'},{'name': 'MatrixResultComponent', 'selector': 'app-matrixresult'},{'name': 'MCFilterComponent', 'selector': 'app-mcfilter'},{'name': 'MenuEditorComponent', 'selector': 'app-menu-editor'},{'name': 'MenuTableComponent', 'selector': 'app-menutable'},{'name': 'ModalsComponent', 'selector': ''},{'name': 'NavbarsComponent', 'selector': 'app-navbars'},{'name': 'NewMenuComponent', 'selector': 'app-newmenu'},{'name': 'NewpriceComponent', 'selector': 'app-newprice'},{'name': 'NgbdModalContent', 'selector': 'ngbd-modal-content'},{'name': 'OrderTableComponent', 'selector': 'app-menu-table'},{'name': 'P404Component', 'selector': ''},{'name': 'P500Component', 'selector': ''},{'name': 'PaginationsComponent', 'selector': ''},{'name': 'PerformanceComponent', 'selector': 'app-performance'},{'name': 'PopoversComponent', 'selector': ''},{'name': 'ProdTableComponent', 'selector': 'app-prod-table'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfitAreaComponent', 'selector': 'app-profitarea'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'RegisterComponent', 'selector': 'app-dashboard'},{'name': 'ReportComponent', 'selector': 'app-report'},{'name': 'RevenueAreaComponent', 'selector': 'app-revenuearea'},{'name': 'RevpashTableComponent', 'selector': 'app-prod-table'},{'name': 'SimpleLineIconsComponent', 'selector': ''},{'name': 'StatComponent', 'selector': 'app-stat'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SwitchesComponent', 'selector': ''},{'name': 'TablesComponent', 'selector': ''},{'name': 'TabsComponent', 'selector': ''},{'name': 'TooltipsComponent', 'selector': ''},{'name': 'ToppingComponent', 'selector': 'app-topping'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ElasticityWeekComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ElasticityWeekComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

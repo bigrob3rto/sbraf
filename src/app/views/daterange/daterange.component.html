@@ -1,0 +1,9 @@
+<ag-grid-angular #agGrid style="width: 162px" [ngClass]="theme" [rowData]="rowData" [columnDefs]="columnDefs"
+    [animateRows]="true" [rowMultiSelectWithClick]="false" [enableCellTextSelection]="false" [enterMovesDown]="false"
+    [singleClickEdit]="true" [enterMovesDownAfterEdit]="false" [domLayout]="domLayout" [headerHeight]="0"
+    [getContextMenuItems]="getContextMenuItems"
+    [suppressScrollOnNewData]="true" 
+    [popupParent]="popupParent" (cellValueChanged)="onCellValueChanged($event)"
+    (gridSizeChanged)="onGridSizeChanged($event)"
+    (gridReady)="onGridReady($event)"> 
+</ag-grid-angular>

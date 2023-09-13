@@ -1,0 +1,34 @@
+<form [formGroup]="menuForm">
+    <div class="md-form mb-2">
+        <input placeholder="Name" type="text" id="menu-name" class="form-control" formControlName="menu_name">
+    </div>
+    <div class="md-form mb-2">
+        <input placeholder="Date from" type="date" placeholder="yyyy-mm-dd" id="menu-from" class="form-control" formControlName="menu_from">
+    </div>
+    <div class="md-form mb-2">
+        <input placeholder="Date to" type="date" placeholder="yyyy-mm-dd" id="menu-to" class="form-control" formControlName="menu_to">
+    </div>
+    <div class="md-form mb-2">
+        <input placeholder="Description" type="text" id="menu-description" class="form-control" formControlName="menu_description">
+    </div>
+</form>
+<!-- <form [formGroup]="menuForm">
+  
+    <label>
+       Name:
+      <input type="text" formControlName="menu_name">
+    </label>
+    <label>
+        Date from:
+       <input type="text" formControlName="menu_from">
+     </label>
+     <label>
+        Date to:
+       <input type="text" formControlName="menu_to">
+     </label>   
+    <label>
+      Description:
+      <input type="text" formControlName="menu_description">
+    </label>
+  
+  </form> -->

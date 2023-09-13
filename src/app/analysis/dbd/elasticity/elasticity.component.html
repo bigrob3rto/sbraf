@@ -1,0 +1,6 @@
+<ag-grid-angular #agGrid style="width: 100%;" [ngClass]="theme" [rowData]="rowData" [columnDefs]="columnDefs"
+    [animateRows]="true" [enterMovesDown]="true" [paginationAutoPageSize]=false [singleClickEdit]="false"
+    [enterMovesDownAfterEdit]="true" [pagination]="true" [enableCellTextSelection]="true"
+    [getContextMenuItems]="getContextMenuItems" [domLayout]="domLayout" (gridSizeChanged)="onGridSizeChanged($event)"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>

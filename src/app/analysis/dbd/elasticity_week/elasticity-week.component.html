@@ -1,0 +1,17 @@
+<div *ngIf="rowData">
+    <button class="btn btn-warning" style="margin: 20px; width: 100px;" (click)="analyse()">IA analyse</button>
+    <button class="btn btn-secondary" style="margin: 20px; width: 100px;" (click)="hide()">IA Toggle</button>
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showCompleted">
+    Neural Anaysis complete - double click on item to see result!
+  </div>
+<ag-grid-angular #agGrid style="width: 100%;" [ngClass]="theme" [rowData]="rowData" [columnDefs]="columnDefs"
+    [animateRows]="true" [enterMovesDown]="true" [paginationAutoPageSize]=false [singleClickEdit]="false"
+    [enterMovesDownAfterEdit]="true" [pagination]="true" [enableCellTextSelection]="true" [getRowStyle]="getRowStyle"
+    [getContextMenuItems]="getContextMenuItems" [domLayout]="domLayout" (gridSizeChanged)="onGridSizeChanged($event)"
+    (cellDoubleClicked)="onCellDoubleClicked($event)"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>
+
+<!-- Modal -->
+<ia-modal-component></ia-modal-component>

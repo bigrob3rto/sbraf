@@ -1,0 +1,74 @@
+<div class="animated fadeIn">
+    <div class="card-deck my-2">
+        <div class="card">
+            <app-mcfilter #mcfilter1 (menuSelect)="onMenuSelect1($event)" (categorySelect)="onCategorySelect1($event)">
+            </app-mcfilter>
+        </div>
+        <div class="card">
+            <div class="card-header">Date range</div>
+            <div class="card-body pb-0 mb-0">
+                <app-daterange #daterange1></app-daterange>
+                <!-- <pre class="small"> Cache:     {{cache_start}} - {{cache_stop}}</pre> -->
+            </div>
+        </div>
+        <div class="card">
+            <app-mcfilter #mcfilter2 (menuSelect)="onMenuSelect2($event)"></app-mcfilter>
+        </div>
+        <div class="card">
+            <div class="card-header">Date range</div>
+            <div class="card-body pb-0 mb-0">
+                <app-daterange #daterange2></app-daterange>
+                <!-- <pre class="small"> Cache:     {{cache_start}} - {{cache_stop}}</pre> -->
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Load data</div>
+            <div class="card-body">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" [disabled]="loading" data-toggle="tooltip"
+                        title="Load remote data and start analysis">Compare</button>
+                    <button class="btn btn-danger" (click)="stopQuery()" *ngIf="dbd_stopBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="card" style="width: 100%;" id="pdfImg">
+            <div class="card-header">
+                <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+                <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+                <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh" [refresh]="refresh">
+                </app-button>
+                <div class="row" *ngIf="pb_current<=100">
+                    <div class="progress" style="width: 100%;">
+                        <div class="progress-bar" role="progressbar" [style.width]="pb_current + '%'" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                            {{pb_current | number : '1.1-1'}}%</div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <!-- <app-comp-chart #compChart1></app-comp-chart> -->
+            <div *ngFor="let c of categoryToShow; let i index">
+
+                <div class="card mx-3">
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{c.name}}</h5>
+                        <button type="button" class="fa fa-heart-o float-right border-0 ml-auto  bg-transparent"
+                            data-html2canvas-ignore="true" (click)="canvasReport($event)" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+
+                        <app-comp-chart [categorySelectedID]="c.categoryid"></app-comp-chart>
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
+</div>

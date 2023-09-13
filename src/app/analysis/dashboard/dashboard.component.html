@@ -1,0 +1,149 @@
+<div class="animated fadeIn">
+    <i class="cil-plus-square"></i>
+    <div class="card-deck">
+        <div class="card col-md-3 m-2" *ngFor="let p of periods; index as i;">
+            <div class="card-header">Period {{i+1}}</div>
+            <div class="card-body m-1">
+                <app-daterange [start]="p.start" [stop]="p.stop"></app-daterange>
+            </div>
+        </div>
+        <div class="card col-md-2 m-2">
+            <div class="card-body text-center">
+                <button type="button" class="btn btn-default btn-menu ion-ios-menu" (click)="onNewPeriod()">
+                    <i class="icon-plus icons font-5xl d-block mt-4 float-center"></i>New Period
+                </button>
+            </div>
+        </div>
+        <div class="card col-md-2 m-2">
+            <div class="card-header">Load data</div>
+            <div class="card-body p-0">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" [disabled]="loading" data-toggle="tooltip"
+                        data-placement="bottom" title="Load remote data">View
+                        <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+        <!-- period summary table -->
+        <table class="my-3 mx-1">
+            <tr *ngFor="let p of drArray; index as i;">
+                <td>Period {{i+1}}</td>
+                <td>{{ngbToString(p.date1)}}</td>
+                <td>{{ngbToString(p.date2)}}</td>
+                <td>{{ngbDays(p.date1,p.date2)}} DAYS</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row m-3" *ngIf="stat.length">
+    <p>SUMMARY</p>
+    <table>
+        <th></th>
+        <th *ngFor="let h of headers">{{h}}</th>
+        <tr>
+            <td>TOTAL REVENUE</td>
+            <td *ngFor="let s of stat">{{s.Total_Revenue}}</td>
+        </tr>
+        <tr>
+            <td>Daily Average REVENUE</td>
+            <td *ngFor="let s of stat">{{s.Daily_Average_Revenue}}</td>
+        </tr>
+        <tr>
+            <td>TOTAL ORDER</td>
+            <td *ngFor="let s of stat">{{s.Total_Order}}</td>
+        </tr>
+        <tr>
+            <td>Daily Average Qty Order</td>
+            <td *ngFor="let s of stat">{{s.Daily_Average_QT_order}}</td>
+        </tr>
+        <tr>
+            <td>Daily Average REVENUE by ORDER</td>
+            <td *ngFor="let s of stat">{{s.Daily_Average_Revenue_by_Order}}</td>
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <div class="card" style="width: 100%;" id="pdfImg">
+        <div class="card-header">
+
+            <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+            <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+            <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh" [refresh]="refresh">
+            </app-button>
+
+        </div>
+
+
+
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink>{{label[1]}}</a>
+                <ng-template ngbNavContent>
+                    <!-- <app-dashboard-revenue #revenue (loading)="setLoading($event)"> </app-dashboard-revenue> -->
+                    <!-- Daily Revenue -->
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #barChart [datasets]="barChart2Data" [labels]="barChart2Labels"
+                            [colors]="chartColors" [options]="barChart2Options" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+
+                    <!-- Monthly Revenue -->
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #barChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [colors]="chartColors" [options]="barChartOptions" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>{{label[2]}}</a>
+                <ng-template ngbNavContent>
+                    <!-- <app-dashboard-flow #flow [daterange]="periods[0]" (loading)="setLoading($event)"> </app-dashboard-flow> -->
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #barChart [datasets]="barChart3Data" [labels]="barChart3Labels"
+                            [colors]="chartColors" [options]="barChart3Options" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #lineChart [datasets]="lineChartData" [labels]="lineChartLabels"
+                            [colors]="chartColors" [options]="lineChartOptions" [legend]="lineChartLegend"
+                            [chartType]="lineChartType">
+                        </canvas>
+                    </div>
+                </ng-template>
+            </li>
+
+            <li [ngbNavItem]="3">
+                <a ngbNavLink>{{label[3]}}</a>
+                <ng-template ngbNavContent>
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #barChart [datasets]="barChart4Data" [labels]="barChart4Labels"
+                            [colors]="chartColors" [options]="barChart4Options" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                    <div class="chart-wrapper" style="display: flex; height: 250px;">
+                        <canvas baseChart #barChart [datasets]="barChart5Data" [labels]="barChart5Labels"
+                            [colors]="chartColors" [options]="barChart5Options" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

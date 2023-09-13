@@ -1,0 +1,13 @@
+.card{
+  margin-top: 10px;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+}
+
+.form-check, .dropdown-toggle{
+  font-size: small;
+}

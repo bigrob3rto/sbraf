@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg">
+        <div class="chart-wrapper" style="display: flex; padding: 50px;">
+            <canvas baseChart #barChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg">
+        <div class="chart-wrapper" style="display: flex; padding: 50px;">
+            <canvas baseChart #barChart2 [datasets]="barChartData2" [labels]="barChartLabels2"
+                [options]="barChartOptions2" [legend]="barChartLegend2" [chartType]="barChartType"
+                [colors]="barChartColors2">
+            </canvas>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg">
+        <div class="chart-wrapper" style="display: flex; padding: 50px;">
+            <canvas baseChart class="chart"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColours"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+            ></canvas>
+        </div>
+    </div>
+</div>

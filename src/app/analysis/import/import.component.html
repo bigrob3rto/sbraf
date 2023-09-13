@@ -1,0 +1,272 @@
+<div class="animated fadeIn">
+
+    <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+        Start <strong>guided</strong> CSV import and customization.
+        <button type="button" class="btn btn-primary mx-3" (click)="start_tour()">
+            START</button>
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">POS - Data Select</h3>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col-lg-2">
+                    <p>CSV File</p>
+                </div>
+                <div class="col-lg-4">
+                    <!-- <input type="file" (change)="onFileCsvSelect($event)"> -->
+                    <div class="custom-file"
+                        data-intro="Select your custom CSV file to be imported. Please check dates and time are in human-readable format."
+                        data-step="3">
+                        <input type="file" class="custom-file-input" id="customFileLang"
+                            (change)="onFileCsvSelect($event)">
+                        <label class="custom-file-label" for="customFileLang">{{fileCsv ? fileCsv.name :
+                            "*.csv"}}</label>
+                    </div>
+                </div>
+                <div class="col-lg-3" *ngIf="!showPreview">
+                    <button class="btn btn-secondary" type="button" id="previewButton" (click)="showPreview=true">
+                        Show Preview
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-3">
+            </div>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="showPreview">
+        <div class="card-header">
+            <div class="card-header-actions">
+                <button type="button" class="card-header-action btn btn-link btn-close" (click)="showPreview=false">
+                    <i class="icon-close"></i></button>
+            </div>
+            <h3 class="mb-0">CSV Preview</h3>
+        </div>
+        <div class="card-body"
+            data-intro="Teach the system about the meaning of columns of the CSV file. Move columns until titles match desired order."
+            data-step="4">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="alert alert-info alert-dismissible fade show text-right" role="alert">
+                        <strong>Drag & Drop</strong> columns titles to modify column order.
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    <ag-grid-angular #agGrid style="width: 100%;" [ngClass]="theme" [rowData]="rowData"
+                        [columnDefs]="columnDefs" [animateRows]="false" [getRowStyle]="getRowStyle"
+                        [rowSelection]="rowSelection" [rowMultiSelectWithClick]="false"
+                        [enableCellTextSelection]="false" [defaultColDef]="defaultColDef" [domLayout]="domLayout"
+                        [enterMovesDown]="true" [paginationAutoPageSize]="false" [singleClickEdit]="false"
+                        [suppressDragLeaveHidesColumns]="true" [enterMovesDownAfterEdit]="true" [pagination]="false"
+                        (gridReady)="onGridReady($event)" (dragStopped)="onDragStopped($event)"
+                        (columnMoved)="onColumnMoved($event)">
+                    </ag-grid-angular>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4 text-center">
+                    <button class="btn btn-secondary" type="button" id="saveButton" (click)="showEditor = true"
+                        *ngIf="!showEditor">
+                        Advanced Options
+                    </button>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang" #fileInput
+                            (change)="onFileSchemaSelect($event)">
+                        <label class="custom-file-label" for="customFileLang">{{fileSchema ? fileSchema.name :
+                            "Load *.json"}}</label>
+                    </div>
+                </div>
+
+                <div class="col-4 text-center" *ngIf="upload_struct">
+                    <label class="mr-3"><i class="fa fa-save text-info"></i> Save to file:</label>
+                    <!-- <a type="button" download="{{upload_struct['SchemaKey']}}" [href]="dataUri"> -->
+                    <button class="btn btn-secondary" type="button" id="saveButton" (click)="save_schema()">
+                        Save changes
+                    </button>
+                    <!-- </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- form user info -->
+    <div class="card" *ngIf="showEditor">
+        <div class="card-header">
+            <div class="card-header-actions">
+                <button type="button" class="card-header-action btn btn-link btn-close" (click)="showEditor=false">
+                    <i class="icon-close"></i></button>
+            </div>
+            <h3 class="mb-0">Schema Edit</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <form class="form col-6" role="form" autocomplete="off">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> csv_file_name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="{{schema.csv_file_name}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> locale</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="{{schema.locale}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> currency</label>
+                        <div class="col-lg-9">
+                            <select id="{{schema.currency}}" class="form-control" size="0">
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> establishment</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="number" [(ngModel)]="schema.establishment"
+                                name="establishment" min="1" max="255">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> establ_name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" [(ngModel)]="schema.establishment_name"
+                                name="establishment_names">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> owner</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" [(ngModel)]="schema.owner" name="owner">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> date_from</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="date" [(ngModel)]="schema.date_from" name="date_from">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> date_to</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="date" [(ngModel)]="schema.date_to" name="date_to">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> header</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="{{schema.header}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-dot-circle-o text-info"></i> separator</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" [(ngModel)]="schema.separator" name="separator">
+                        </div>
+                    </div>
+                </form>
+
+                <form class="form col-6" role="form" autocomplete="off">
+
+                    <div class="form-group row" *ngFor="let line of schemaTable; let i index">
+                        <label class="col-lg-3 col-form-label form-control-label">
+                            <i class="fa fa-paperclip text-info"></i> {{line.name}}</label>
+                        <div class="col-lg-6">
+                            <input class="form-control" type="number" [(ngModel)]="schema.schema[line.name]"
+                                name="{{line.name}}" min="1" max="255" (change)="onChangeEvent($event)"
+                                [disabled]="line.disable">
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" [(ngModel)]="line.disable"
+                                    [ngModelOptions]="{standalone: true}" (change)="onDisableEvent($event)">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Disable
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- /form user info -->
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">Upload</h3>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col-lg-2">
+                    <p>Database import:</p>
+                </div>
+                <div class="col-lg-5" data-intro="When ready, upload your data using the Upload button." data-step="5">
+                    <button class="btn btn-secondary" type="button" id="saveButton" (click)="importFile()">
+                        Upload
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">CSV Upload - Result</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" *ngFor="let line of resultLog; let i index">
+                        <li class="list-group-item" [ngClass]="{
+                            'list-group-item-info': line.type === 'info',
+                            'list-group-item-success': line.type === 'success',
+                            'list-group-item-danger': line.type === 'danger'
+                          }">{{line.msg}}</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <div class="progress" style="width: 100%;">
+                        <div class="progress-bar" role="progressbar" [style.width]="pb_current + '%'" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                            {{pb_current | number : '1.1-1'}}%</div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        [disabled]="closeDisabled">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

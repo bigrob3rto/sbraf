@@ -1,0 +1,13 @@
+tr:nth-child(even) {background: #EEE}
+tr:nth-child(odd) {background: #FFF}
+
+th,tr{
+    height: 30px;
+    font-size: 12px;
+    font-family: 'Roboto';
+}
+
+
+td{
+    width: 150px;
+}

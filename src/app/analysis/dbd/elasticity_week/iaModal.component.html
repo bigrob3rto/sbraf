@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">Neural Network Analysis</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <p>Product:  <b>{{data.product_name}}</b></p>
+    <p>Sell price:  <b>{{data.product_sellprice}}$</b></p>
+    <p>Food cost:  <b>{{data.product_foodcost}}$</b></p>
+</div>
+<div class="chart-wrapper" style="display: flex;">
+    <canvas baseChart #barChart [datasets]="barChartData" [labels]="barChartLabels"
+        [colors]="chartColors" [options]="barChartOptions" [legend]="barChartLegend"
+        [chartType]="barChartType">
+    </canvas>
+</div>
+<div class="chart-wrapper" style="display: flex;">
+    <canvas baseChart #lineChart2 [datasets]="line2ChartData" [labels]="line2ChartLabels"
+        [colors]="chartColors" [options]="line2ChartOptions" [legend]="line2ChartLegend"
+        [chartType]="line2ChartType">
+    </canvas>
+</div>
+<!-- <div class="modal-body horizontal">
+    <div *ngFor="let revenue of week_revenue">
+      <p> {{revenue.toFixed(1)}} </p>
+    </div>
+</div> -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

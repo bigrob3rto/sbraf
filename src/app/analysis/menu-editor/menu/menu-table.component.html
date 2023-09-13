@@ -1,0 +1,55 @@
+<div class="animated fadeIn">
+  <div class="card" *ngIf="isUserLogged()">
+    <div class="card-header">
+      <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+      <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+      <i *ngIf="unsaved" class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i>
+      <app-button [btnExport]="btnExport" [export]="export" [btnRefresh]="btnRefresh" [refresh]="refresh"
+        [btnSave]="btnSave" [saveTable]="saveTable">
+      </app-button>
+    </div>
+
+    <!-- Confirmation dialog for unsaved data -->
+    <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Unsaved data</h4>
+            <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Unsaved data in your table. Changes will be lost&hellip; <br>Sure to proceed?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modalCancel()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="modalProceed()">Proceed</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="card-body">
+      <div class="row">
+        <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent"
+          data-html2canvas-ignore="true" (click)="canvasReport($event)" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+        <ag-grid-angular #agGrid style="width: 100%;" [ngClass]="theme" [rowData]="rowData"
+          [columnDefs]="columnDefs" [animateRows]="true" [getRowStyle]="getRowStyle" [rowSelection]="rowSelection"
+          [rowMultiSelectWithClick]="false" [enableCellTextSelection]="false" [defaultColDef]="defaultColDef"
+          [enterMovesDown]="true" [paginationAutoPageSize]="false" [singleClickEdit]="false"
+          [enterMovesDownAfterEdit]="true" [pagination]="true" [getContextMenuItems]="getContextMenuItems"
+          [popupParent]="popupParent"
+          [rowModelType]="rowModelType" [paginationPageSize]="paginationPageSize"
+          [cacheOverflowSize]="cacheOverflowSize" [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+          [infiniteInitialRowCount]="infiniteInitialRowCount" [maxBlocksInCache]="maxBlocksInCache"
+          [domLayout]="domLayout" (cellValueChanged)="onCellValueChanged($event)" (gridReady)="onGridReady($event)"
+          (gridSizeChanged)="onGridSizeChanged($event)" (selectionChanged)="onSelectionChange($event)">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>

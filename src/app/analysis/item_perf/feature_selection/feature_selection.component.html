@@ -1,0 +1,133 @@
+<div class="card">
+    <!-- <div class="card-header">Feature Selection</div> -->
+    <div class="card-body">
+        <!-- test content / component -->
+
+        <div class="row justify-content-center">
+
+            <div class=" col-auto ml-2">
+                <div class="card">
+                    <div class="card-header">Menu</div>
+                    <div class="card-body">
+                        <div class="nav-item dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown">
+                                {{ feature.menu }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <li *ngFor="let v of menuMenuHeader; let i = index" (click)="onMenuSelect(i);">
+                                    <a class="dropdown-item btn-sm" role="button">{{ v.menu_name }}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-auto">
+                <div class="card">
+                    <div class="card-header">Date range</div>
+                    <div class="card-body">
+                        <app-daterange></app-daterange>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-auto">
+                <div class="card">
+                    <div class="card-header">Weekday</div>
+                    <div class="card-body">
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_mon">mon 
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_tue">tue
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_wed">wed
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_thu">thu
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_fri">fri
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_sat">sat
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_sun">sun
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.ckbox_all">all
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-auto">
+                <div class="card">
+                    <div class="card-header">Time table</div>
+                    <div class="card-body">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t00_04">00:00 - 04:00
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t04_08">04:00 - 08:00
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t08_12">08:00 - 12:00
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t12_16">12:00 - 16:00
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t16_20">16:00 - 20:00
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" [(ngModel)]="feature.t20_00">20:00 - 24:00
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

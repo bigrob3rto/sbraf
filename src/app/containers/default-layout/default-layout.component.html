@@ -1,0 +1,96 @@
+<app-header [navbarBrandRouterLink]="['/table/structures']" [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo_trasparente.png', width: 100, height: 60, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [sidebarToggler]="'lg'" [asideMenuToggler]="'lg'">
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+
+    <li class="nav-item px-3">
+      <!-- Dropdown select active structure -->
+      <div class="nav-item dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="tooltip"
+          data-placement="bottom" title="Select Store from list to start analysis" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{ selectedStructure }}
+          <span class="badge badge-light"> {{storesXmenu}}</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <li *ngFor="let s of structureList; let i = index" (click)="onStructureSelect(i);">
+            <a class="dropdown-item btn-sm" role="button">{{ s }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item px-3">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProcedureModal" hidden>
+        Analysis Wizard
+      </button>
+    </li>
+
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item px-3">
+      <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">{{userName}}
+        <img *ngIf="isUserLogged()" src="assets/img/avatars/8.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" />
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#/table/profile"><i class="fa fa-child text-info"></i>User Profile</a>
+        <a class="dropdown-item" href="#" (click)="logout()"><i class="fa fa-lock text-dark"></i> Logout</a>
+      </div>
+    </li>
+
+
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized"
+    data-intro="As soon as a structure is selected, you can import data to database using Data Pick Up menu." data-step="2"
+    (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <div class="container-fluid">
+
+      <!-- Wizard Modal -->
+      <div class="modal fade" id="ProcedureModal" tabindex="-1" role="dialog" aria-labelledby="ProcedureModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Analysis Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ng-container *ngFor="let w of wizard_step; let i = index" class="wizard_step">
+                <button type="button" class="btn"
+                  [ngClass]="wizard && wizard[w] ? 'btn-success' : 'btn-light'">{{w}}</button><span
+                  *ngIf="i<6">&#8594;</span>
+              </ng-container>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+
+</div>
+<app-footer>
+  <span><a href="#">Sbraf </a> &copy; 2021 </span>
+  <span class="ml-auto">Powered by b0b</span>
+</app-footer>

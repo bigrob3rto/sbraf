@@ -1,0 +1,273 @@
+<!-- Confirmation dialog for unsaved data -->
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Unsaved data</h4>
+                <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Unsaved data in your table. Changes will be lost&hellip; <br>Sure to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modalCancel()">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="modalProceed()">Proceed</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="animated fadeIn">
+    <div class="card-deck my-2">
+
+        <div class="card" data-intro="Start by selecting a menu" data-step="2">
+            <div class="card-header">Menu</div>
+            <div class="card-body pb-0">
+                <div class="nav-item dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ menuSelected }}
+                    </button>
+                    <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="button" role="button">{{ menuSelected }}</a>
+                    </a> -->
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li *ngFor="let v of menuMenuHeader; let i = index" (click)="onMenuSelect(i);">
+                            <a class="dropdown-item btn-sm" role="button">{{ v }}
+                                <span class="badge badge-light">{{productXmenu[i]}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Load data</div>
+            <div class="card-body pt-0 mt-0">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" data-toggle="tooltip" data-placement="bottom"
+                        title="Load remote data">View</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Validity</div>
+            <div class="card-body" *ngIf="menuDescription">
+                <app-daterange #daterange1 [start]="menu_from" [stop]="menu_to" [editable]="_false" ></app-daterange>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" *ngIf="!SAVE_AS">Create New Menu</h4>
+                    <h4 class="modal-title w-100 font-weight-bold" *ngIf="SAVE_AS">Save Menu As</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <app-newmenu [startDate]="" [endDate]=""></app-newmenu>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createSaveMenu()">
+                        {{SAVE_AS ? "Save Menu" : "Create Menu"}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+        Start <strong>guided</strong> Menu edit and product assignement.
+        <button type="button" class="btn btn-primary mx-3" (click)="start_tour()">
+            START</button>
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+
+
+    <div class="row">
+        <tabset class="col-lg" data-intro="Assign product to active menu and edit food costs for each product."
+            data-step="3">
+            <tab heading="Menu List">
+                <!-- Menu table editor -->
+                <app-menutable (selectionChanged)="onMenuTableSelectionChanged($event)"></app-menutable>
+            </tab>
+            <tab heading="Editor" [active]="false">
+                <div class="animated fadeIn">
+                    <div class="card" id="pdfImg">
+                        <div class="card-header">
+
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+                                    <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i>
+
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                File
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" role="button" data-toggle="modal"
+                                                    data-target="#newMenuModal"><i class="fa fa-file"></i>New</a>
+                                                <a class="dropdown-item" role="button" (click)="saveTable()"><i
+                                                        class="fa fa-floppy-o"></i>Save</a>
+                                                <!-- <div class="dropdown-divider"></div> -->
+                                                <a class="dropdown-item" role="button" data-toggle="modal"
+                                                    data-target="#newMenuModal" (click)="SAVE_AS = true"><i
+                                                        class="fa fa-floppy-o"></i>Save as..</a>
+                                                <a class="dropdown-item" role="button" (click)="print()"><i
+                                                        class="fa fa-print"></i>Print</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Edit
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="delete">
+                                                <a class="dropdown-item" role="button"
+                                                    (click)="deleteSelectedRow(true)"><i
+                                                        class="fa fa-trash-o fa-fw"></i>Delete Selected Row</a>
+                                                <a class="dropdown-item" role="button"
+                                                    (click)="deleteSelectedRow(false)"><i
+                                                        class="fa fa-undo"></i>Undelete Selected Row</a>
+                                                <a class="dropdown-item" role="button" (click)="refresh()"><i
+                                                        class="fa fa-refresh"></i>Refresh</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                View
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" role="button" (click)="autoSize()"><i
+                                                        class="fa fa-table"></i>Fit Table
+                                                    view</a>
+                                                <a class="dropdown-item disabled" href="#"><i
+                                                        class="fa fa-file-excel-o"></i>Export to Excel</a>
+                                                <a class="dropdown-item disabled" href="#"><i
+                                                        class="fa fa-file-code-o"></i>Export to CSV</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item" *ngIf="unsaved">
+                                            <a class="nav-link disabled" href="#">(unsaved)
+                                                <i class="fa fa-exclamation-triangle" style="color:orange"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="btn-group mr-3" role="group">
+                                        <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal"
+                                            data-target="#newMenuModal" title="New menu"><i
+                                                class="fa fa fa-book"></i></button>
+                                        <button type="button" class="btn btn-secondary btn-xs"
+                                            (click)="deleteSelectedRow(true)" data-toggle="tooltip"
+                                            title="Delete row"><i class="fa fa fa-trash"></i></button>
+                                        <button type="button" class="btn btn-secondary btn-xs"
+                                            (click)="deleteSelectedRow(false)" data-toggle="tooltip"
+                                            title="Undelete row"><i class="fa fa fa-undo"></i></button>
+                                    </div>
+
+                                    <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh"
+                                        [refresh]="refresh" [btnReload]="btnRefresh" [reload]="reload"
+                                        [btnSave]="btnSave" [saveTable]="saveTable" [btnExport]="btnExport"
+                                        [export]="export">
+                                    </app-button>
+                                </div>
+                            </nav>
+
+
+
+
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div style="height: 100%;">
+                                        <!-- (dragover)="gridDragOver($event)"
+                                        (drop)="gridDrop($event,'left')"> -->
+                                        <!-- table Product x drag -->
+                                        <ag-grid-angular #agGrid style=" height: calc(100vh - 240px);" [ngClass]="theme"
+                                            [rowData]="rowDataProduct" [columnDefs]="columnDefs2" [animateRows]="true"
+                                            [enterMovesDown]="true" [paginationAutoPageSize]=false
+                                            [singleClickEdit]="false" [enterMovesDownAfterEdit]="true"
+                                            [pagination]="false" [rowMultiSelectWithClick]="false"
+                                            [rowSelection]="rowSelection" [getContextMenuItems]="getContextMenuItems"
+                                            [enableCellTextSelection]="false" [groupUseEntireRow]='false'
+                                            [groupHideOpenParents]='true' [groupRemoveSingleChildren]='false'
+                                            [groupDefaultExpanded]='-1' [getRowStyle]="getRowStyle1"
+                                            (cellValueChanged)="onCellValueChanged($event)"
+                                            (gridReady)="onLeftGridReady($event)" [enableMultiRowDragging]='true'
+                                            [rowDragManaged]='true' [getRowNodeId]="getRowNodeId"
+                                            (gridSizeChanged)="onGridSizeChanged($event)"
+                                            (cellDoubleClicked)="onRowDoubleClick($event)">
+                                        </ag-grid-angular>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 text-center" *ngIf="menuSelected=='Please select a menu'">
+                                    <button class="btn btn-secondary" type="button" data-toggle="modal"
+                                        data-target="#newMenuModal">
+                                        Create Menu
+                                    </button>
+                                </div>
+
+                                <div class="col-lg-8" *ngIf="menuSelected!='Please select a menu'">
+                                    <div style="height: 100%;">
+                                        <!-- (dragover)="gridDragOver($event)"
+                                        (drop)="gridDrop($event,'right')"> -->
+                                        <!-- table Menu x drop -->
+                                        <ag-grid-angular #agGrid style="width: 100%; height: calc(100vh - 240px);"
+                                            [ngClass]="theme" [rowData]="rowData" [columnDefs]="columnDefs"
+                                            [animateRows]="true" [enterMovesDown]="true" [paginationAutoPageSize]=false
+                                            [getRowStyle]="getRowStyle" [rowSelection]="rowSelection"
+                                            [rowMultiSelectWithClick]="false" [enableCellTextSelection]="false"
+                                            [defaultColDef]="defaultColDef" [singleClickEdit]="false"
+                                            [enterMovesDownAfterEdit]="true" [pagination]="true"
+                                            [getContextMenuItems]="getContextMenuItems" [enableCellTextSelection]="true"
+                                            (cellValueChanged)="onCellValueChanged($event)"
+                                            (gridSizeChanged)="onGridSizeChanged($event)"
+                                            (gridReady)="onRightGridReady($event)" [rowDragManaged]='true'
+                                            [getRowNodeId]="getRowNodeId"
+                                            [overlayNoRowsTemplate]="overlayNoRowsTemplate">
+                                        </ag-grid-angular>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>

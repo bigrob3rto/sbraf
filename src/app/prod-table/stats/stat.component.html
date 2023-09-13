@@ -1,0 +1,128 @@
+<div class="animated fadeIn">
+
+  <div class="card" style="margin-top: 20px;" id="pdfImg">
+    <div class="card-header">
+      <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+      <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+      <i *ngIf="unsaved" class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i>
+      <app-button [btnExport]="btnExport" [export]="export" [btnPrint]="btnPrint" [print]="print"
+        [btnRefresh]="btnRefresh" [refresh]="refresh" [btnSave]="btnSave" [saveTable]="saveTable">
+      </app-button>
+    </div>
+
+    <div class="card-body">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Database statistics</h5>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4">
+                <ag-grid-angular #agGrid style="width: 99%;" [ngClass]="theme" [rowData]="rowData"
+                  [columnDefs]="columnDefs" [animateRows]="true" [getRowStyle]="getRowStyle"
+                  [rowSelection]="rowSelection" [rowMultiSelectWithClick]="false" [enableCellTextSelection]="false"
+                  [defaultColDef]="defaultColDef" [domLayout]="domLayout" [enterMovesDown]="true"
+                  [paginationAutoPageSize]="false" [singleClickEdit]="false" [enterMovesDownAfterEdit]="true"
+                  [pagination]="false" (gridSizeChanged)="onGridSizeChanged($event)" (gridReady)="onGridReady($event)">
+                </ag-grid-angular>
+              </div>
+              <div class="col-lg-4">
+                <div class="chart-wrapper">
+                  <canvas baseChart #barChart [datasets]="barChartData" [labels]="barChartLabels"
+                    [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                    [colors]="barChartColors">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cache commands -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Cache utilities</h5>
+          <div class="row mt-3">
+            <div class="col-lg-5 mt-3">
+              Order cache {{cache_start}} - {{cache_stop}}
+            </div>
+            <div class="col-lg-3">
+              <button class="btn btn-secondary" type="button" id="saveButton" (click)="saveCache()">
+                Export
+              </button>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-5">
+              <input type="file" (change)="onFileSelect($event)">
+              <!-- The `multiple` attribute lets users select multiple files. -->
+              <!-- <input type="file" id="file-selector" single ng-change="onFileSelected($event)" ng-model="fileList"> -->
+            </div>
+            <div class="col-lg-3">
+              <button class="btn btn-secondary" type="button" id="saveButton" (click)="importCache()">
+                Import
+              </button>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-5">
+              Clear cache
+              <!-- The `multiple` attribute lets users select multiple files. -->
+              <!-- <input type="file" id="file-selector" single ng-change="onFileSelected($event)" ng-model="fileList"> -->
+            </div>
+            <div class="col-lg-3">
+              <button class="btn btn-secondary" type="button" id="saveButton" (click)="cacheClear()">
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Theme settings</h5>
+          <div class="row mt-3">
+            <div class="col-lg-5">
+              Button & text theme:
+            </div>
+            <div class="col-lg-4">
+              <div class="nav-item dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ themeSelected }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <li *ngFor="let v of themeArray; let i = index" (click)="selectTheme(v);">
+                    <a class="dropdown-item btn-sm" role="button">{{ v }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-5">
+              Table AG Grid Theme:
+            </div>
+            <div class="col-lg-4">
+              <div class="nav-item dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ agThemeSelected }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <li *ngFor="let v of agThemeArray; let i = index" (click)="selectAgTheme(v);">
+                    <a class="dropdown-item btn-sm" role="button">{{ v }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

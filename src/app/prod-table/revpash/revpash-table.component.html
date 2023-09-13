@@ -1,0 +1,43 @@
+<div class="animated fadeIn" *ngIf="!isUserLogged()">
+  <h1 style="text-align: center;">Please 
+    <a href="#/login">log in</a>  to use this feature.
+</h1>
+</div>
+<div class="animated fadeIn" *ngIf="isUserLogged()">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Menu ID:  {{ idSelected }}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <p *ngFor="let v of MenuHeader; let i = index" (click)="onIDSelect(i);">
+        <button class="dropdown-item" type="button">{{ v.id }}</button>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="card" style="margin-top: 20px;">
+    <div class="card-header">
+      <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+      <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+      <app-button [btnRefresh]="btnRefresh" [refresh]="refresh"></app-button>
+
+    </div>
+    <div class="card-body">
+      <div class="row">
+         <!-- AG-grid table -->
+        <ag-grid-angular #agGrid style="width: 100%; height: calc(100vh - 240px);" 
+          [ngClass]="theme"
+          [enterMovesDown]="true" 
+          [paginationAutoPageSize]=true 
+          [singleClickEdit]="true"
+          [enterMovesDownAfterEdit]="true" 
+          [pagination]="true" 
+          [rowData]="rowData"
+          [columnDefs]="columnDefs" 
+          (gridReady)="onGridReady($event)">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>

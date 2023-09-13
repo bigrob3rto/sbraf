@@ -1,0 +1,132 @@
+<div>
+    <div class="row">
+        <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent"
+            data-html2canvas-ignore="true" (click)="canvasReport($event)" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+        <div class="col-lg" *ngIf="categorySelected == 'All'">
+            <div style="display: flex">
+                <canvas baseChart #barChart [datasets]="barChartData" [labels]="barChartLabels"
+                    [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent"
+            data-html2canvas-ignore="true" (click)="canvasReport($event)" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+        <div class="col-lg">
+            <div style="display: flex">
+                <canvas baseChart #bubbleChart="base-chart" [datasets]="bubbleChartData" [options]="bubbleChartOptions"
+                    [colors]="bubbleChartColors" [legend]="bubbleChartLegend" [chartType]="bubbleChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent"
+            data-html2canvas-ignore="true" (click)="canvasReport($event)" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+        <div class="col-lg">
+            <div style="display: flex">
+                <canvas baseChart #bubbleChart2="base-chart" [datasets]="bubbleChartData2"
+                    [options]="bubbleChartOptions2" [colors]="bubbleChartColors" [legend]="bubbleChartLegend"
+                    [chartType]="bubbleChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h5>First Step</h5>
+        <button type="button" class="fa fa-heart-o border-0 float-right bg-transparent" data-html2canvas-ignore="true"
+            (click)="canvasReport($event)" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+        <br>
+        <div class="card-deck">
+            <div class="card text-white bg-success">
+                <div class="card-header">Star</div>
+                <div class="card-body">
+                    <li *ngFor="let v of star1">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+
+            <div class="card text-white bg-danger ">
+                <div class="card-header">Worst</div>
+                <div class="card-body">
+                    <li *ngFor="let v of worst1">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+            <div class="card text-white bg-warning">
+                <div class="card-header">Leader</div>
+                <div class="card-body">
+                    <li *ngFor="let v of leader1">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+            <div class="card text-white bg-info">
+                <div class="card-header">Puzzle</div>
+                <div class="card-body">
+                    <li *ngFor="let v of puzzle1">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h5>Second Step</h5>
+        <div class="card-deck">
+            <div class="card text-white bg-success">
+                <div class="card-header">Star</div>
+                <div class="card-body">
+                    <li *ngFor="let v of star2">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+
+            <div class="card text-white bg-danger ">
+                <div class="card-header">Worst</div>
+                <div class="card-body">
+                    <li *ngFor="let v of worst2">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+            <div class="card text-white bg-warning">
+                <div class="card-header">Leader</div>
+                <div class="card-body">
+                    <li *ngFor="let v of leader2">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+            <div class="card text-white bg-info">
+                <div class="card-header">Puzzle</div>
+                <div class="card-body">
+                    <li *ngFor="let v of puzzle2">
+                        {{v}}
+                    </li>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container">
+        <button type="button" class="fa fa-heart-o border-0 float-right bg-transparent" data-html2canvas-ignore="true"
+            (click)="canvasReport($event)" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+        <app-matrixresult></app-matrixresult>
+    </div>
+</div>

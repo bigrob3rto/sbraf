@@ -1,0 +1,96 @@
+<div class="animated fadeIn">
+  <div class="card" style="margin-top: 20px;" id="pdfImg">
+    <div class="card-header">
+      <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+      <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+      <i *ngIf="unsaved" class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i>
+
+
+      <app-button [btnExport]="btnExport" [export]="export" [btnPrint]="btnPrint" [print]="print"
+        [btnRefresh]="btnRefresh" [refresh]="refresh" [btnSave]="btnSave" [saveTable]="saveTable"
+        [btnReload]="btnReload" [reload]="reload">
+      </app-button>
+      <!-- button group new -->
+      <div class="btn-group float-right mr-3" role="group">
+        <button type="button" *ngIf="btnNew" class="btn btn-secondary btn-xs" (click)="newRow()" title="New"><i
+            class="fa fa fa-book"></i></button>
+        <button type="button" *ngIf="btnDelete" class="btn btn-secondary btn-xs" (click)="deleteSelectedRow(true)"
+          title="Delete row"><i class="fa fa fa-trash"></i></button>
+        <button type="button" *ngIf="btnUndelete" class="btn btn-secondary btn-xs" (click)="deleteSelectedRow(false)"
+          title="Undelete row"><i class="fa fa fa-undo"></i></button>
+      </div>
+      <!-- 
+      [btnPrint] = "btnPrint"
+      [btnExport] = "btnExport"
+      [btnGridCols] = "btnGridCols"
+      [btnNew] = "btnNew"
+      [btnSaveSettings] = "btnSaveSettings"
+      [btnReload] = "btnReload"
+
+      [strList] ="risorsa"
+      [columnDefs]="columnDefs"
+      [export]="export"
+      [clickCheckBox]="clickCheckBox"
+      [restore]="restore"
+      [saveSettings]="saveSettings"
+      [openModalAddEdit]="openModalAddEdit"
+      [print]= "print" -->
+    </div>
+
+    <!-- Confirmation dialog for unsaved data -->
+    <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Unsaved data</h4>
+            <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Unsaved data in your table. Changes will be lost&hellip; <br>Sure to proceed?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modalCancel()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="modalProceed()">Proceed</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="card-body">
+      <div class="row d-flex">
+        <input type="text" id="filter-text-box" class="float-left border-1"
+          style="font-size: 12px; outline: 0 none; box-shadow: none; border-color:white;" placeholder="Find filter..."
+          (input)="onFilterTextBoxChanged()" />
+        <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent" data-html2canvas-ignore="true"
+          (click)="canvasReport($event)" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+
+        <ag-grid-angular #agGrid style="width: 100%;  height: calc(100vh - 240px);" [rowData]="rowData"
+          [columnDefs]="columnDefs" [animateRows]="true" [getRowStyle]="getRowStyle" [getRowNodeId]="getRowNodeId"
+          [ngClass]="theme" [rowSelection]="rowSelection" [rowMultiSelectWithClick]="false"
+          [enableCellTextSelection]="false" [defaultColDef]="defaultColDef" [enterMovesDown]="true"
+          [paginationAutoPageSize]="false" [singleClickEdit]="false" [enterMovesDownAfterEdit]="true"
+          [pagination]="false" [domLayout]="domLayout" [getContextMenuItems]="getContextMenuItems"
+          [groupUseEntireRow]='false' [groupHideOpenParents]='true' [groupRemoveSingleChildren]='false'
+          [groupDefaultExpanded]='-1' (cellValueChanged)="onCellValueChanged($event)" (gridReady)="onGridReady($event)">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+          class="ag-theme-balham"
+          [rowModelType]="rowModelType" 
+          [cacheOverflowSize]="cacheOverflowSize"
+          [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+          [infiniteInitialRowCount]="infiniteInitialRowCount"
+          [maxBlocksInCache]="maxBlocksInCache"
+          [paginationPageSize]="paginationPageSize"
+          (gridSizeChanged)="onGridSizeChanged($event)"
+
+-->

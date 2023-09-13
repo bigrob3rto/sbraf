@@ -1,0 +1,94 @@
+.col-22 {
+    flex: 0 0 22%;
+    max-width: 22%;
+}
+
+.col-33 {
+    flex: 0 0 34%;
+    max-width: 34%;
+}
+
+.col-11 {
+    flex: 0 0 11%;
+    max-width: 11%;
+}
+
+.blue1 {
+    background-color: rgba(71, 104, 252, 0.61);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.blue2 {
+    background-color: rgba(35, 97, 190, 0.61);
+    color: white;
+    text-align: center;
+}
+
+.blue3 {
+    background-color: rgba(55, 183, 206, 0.61);
+    color: black;
+    text-align: center;
+}
+
+.brown1 {
+    background-color: rgb(126, 61, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.brown2 {
+    background-color: rgb(126, 29, 0);
+    color: white;
+    text-align: center;
+}
+
+.brown3 {
+    background-color: rgb(224, 152, 85);
+    color: black;
+    text-align: center;
+}
+
+.orange1 {
+    background-color: rgb(126, 92, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.orange2 {
+    background-color: rgb(214, 166, 33);
+    color: white;
+    text-align: center;
+}
+
+.orange3 {
+    background-color: rgb(204, 195, 68);
+    color: black;
+    text-align: center;
+}
+
+.green1 {
+    background-color: rgb(13, 77, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.green2 {
+    background-color: rgb(76, 143, 62);
+    color: white;
+    text-align: center;
+}
+
+.green3 {
+    background-color: rgb(102, 221, 78);
+    color: black;
+    text-align: center;
+}

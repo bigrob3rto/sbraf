@@ -1,0 +1,106 @@
+<!-- *ngIf="stat.Total_Order_Sold_whole_period>0" -->
+<div class="container mb-3 ml-3" >
+    <!-- <div class="row justify-content-md-center">
+        <div class="col-lg-3 blue1"> Flow Area - Orders Trend
+        </div>
+        <div class="col-lg-2 brown1">Revenue Area</div>
+        <div class="col-lg-2 orange1">FOOD COST AREA</div>
+        <div class="col-lg-2 green1">CONTRIBUTION AREA</div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-1 blue2">Total Order Sold whole period</div>
+        <div class="col-lg-1 blue2">Daily Average QT sold</div>
+        <div class="col-lg-1 blue2">Daily Average Revenue</div>
+        <div class="col-lg-1 brown2">Total Revenue whole period</div>
+        <div class="col-lg-1 brown2">Daily Average Revenue trend</div>
+        <div class="col-lg-1 orange2">Total Food Cost whole period</div>
+        <div class="col-lg-1 orange2">Food Cost Trend</div>
+        <div class="col-lg-1 green2">Total Contribution whole period</div>
+        <div class="col-lg-1 green2">Daily Average Contribution</div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-1 blue3">{{stat.Total_Order_Sold_whole_period}}</div>
+        <div class="col-lg-1 blue3">{{stat.Daily_Average_QT_sold}}</div>
+        <div class="col-lg-1 blue3">${{stat.Daily_Average_Revenue}}</div>
+        <div class="col-lg-1 brown3">${{stat.Total_Revenue_whole_period}}</div>
+        <div class="col-lg-1 brown3">${{stat.Daily_Average_Revenue_trend}}</div>
+        <div class="col-lg-1 orange3">${{stat.Total_Food_Cost_whole_period}}</div>
+        <div class="col-lg-1 orange3">{{stat.Food_Cost_Trend}}%</div>
+        <div class="col-lg-1 green3">${{stat.Total_Contribution_whole_period}}</div>
+        <div class="col-lg-1 green3">${{stat.Daily_Average_Contribution}}</div>
+    </div>
+    <br> -->
+    <div class="row justify-content-md-center">
+        <div class="col blue1 col-33"> Flow Area - Orders Trend
+        </div>
+        <div class="col brown1 col-22">Revenue Area</div>
+        <div class="col orange1 col-22">FOOD COST AREA</div>
+        <div class="col green1 col-22">CONTRIBUTION AREA</div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-11">
+            <div class="callout callout-info">
+                <small class="text-muted">Total Order Sold whole period</small><br>
+                <strong class="h6">{{stat.Total_Order_Sold_whole_period}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-info">
+                <small class="text-muted">Daily Average QT sold</small><br>
+                <strong class="h6">{{stat.Daily_Average_QT_sold}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-info">
+                <small class="text-muted">Daily Average Revenue</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Daily_Average_Revenue}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-danger">
+                <small class="text-muted">Total Revenue whole period</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Total_Revenue_whole_period}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-danger">
+                <small class="text-muted">Daily Average Revenue trend</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Daily_Average_Revenue_trend}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-warning">
+                <small class="text-muted">Total Food Cost whole period</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Total_Food_Cost_whole_period}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-warning">
+                <small class="text-muted">Food Cost Trend</small><br>
+                <strong class="h6">{{stat.Food_Cost_Trend}}%</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-success">
+                <small class="text-muted">Total Contribution whole period</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Total_Contribution_whole_period}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col col-11">
+            <div class="callout callout-success">
+                <small class="text-muted">Daily Average Contribution</small><br>
+                <strong class="h6">{{user_currency}}{{stat.Daily_Average_Contribution}}</strong>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+</div>

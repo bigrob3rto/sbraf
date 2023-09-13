@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+    <i class="cil-plus-square"></i>
+
+    <div class="row justify-content-center">
+
+        <div class=" col-auto">
+            <div class="card">
+                <div class="card-header">Date range</div>
+                <div class="card-body">
+                    <app-daterange></app-daterange>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-auto">
+            <div class="card">
+                <div class="card-header">Time start</div>
+                <div class="card-body">
+                    <app-timerange></app-timerange>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-auto">
+            <div class="card">
+                <div class="card-header">Time end</div>
+                <div class="card-body">
+                    <app-timerange></app-timerange>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Load data</div>
+            <div class="card-body">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" [disabled]="loading" data-toggle="tooltip"
+                        data-placement="bottom" title="Load remote data">View
+                        <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="card" style="width: 100%;" id="pdfImg">
+            <div class="card-header">
+
+                <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+                <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+                <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh" [refresh]="refresh">
+                </app-button>
+
+            </div>
+        </div>
+    </div>
+
+</div>

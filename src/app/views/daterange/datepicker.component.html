@@ -1,0 +1,13 @@
+<!-- <ngb-datepicker [startDate]="selectedDate" (select)="onDateSelect($event)" style></ngb-datepicker> -->
+<div class="input-group">
+    <input class="full-width" placeholder="YYYY-MM-DD" [(ngModel)]="selectedDate" ngbDatepicker
+        #datePickerInput="ngbDatepicker">
+
+    <div class="input-group-addon" (click)="datePickerInput.toggle()">
+        <button class="btn btn-outline-secondary calendar" type="button"></button>
+    </div>
+</div>
+
+<!-- <div (click)="datePickerInput.open()"></div>
+
+<span (click)="datePickerInput.close()"></span> -->

@@ -1,0 +1,220 @@
+<div class="animated fadeIn">
+
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+        <div class="container">
+            <img class="pull-right" src="assets/img/brand/logo_trasparente.png" style="width: 200px;">
+            <h2 class="display-4">Welcome to SBRAF</h2>
+            <p class="lead">A distributed micro-services system able to analyze data such as
+                statistics and prices and, according to algorithms and heuristics, to provide optimized prices
+                and quantities as output.</p>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-info alert-dismissible fade show w-50" role="alert">
+        Start <strong>guided</strong> data import and analysis.
+        <button type="button" class="btn btn-primary mx-3" (click)="start_tour()">
+            START</button>
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+
+
+    <div class="modal fade" id="newStructModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Establishment Create / Modify</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form m-3" role="form" autocomplete="off">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-child text-info"></i> Name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_name"
+                                    name="structure_name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-child text-info"></i> Owner</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_owner"
+                                    name="structure_owner">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-child text-info"></i> Channel</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_channel"
+                                    name="structure_channel">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-user-secret text-info"></i> Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_email"
+                                    name="structure_email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-user-secret text-info"></i> Contract</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="number" [(ngModel)]="newS.structure_contract"
+                                    name="structure_contract">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-calendar text-info"></i> Activation date:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="date" [(ngModel)]="newS.structure_activation"
+                                    name="structure_activation">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-calendar text-info"></i> Expiration date:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="date" [(ngModel)]="newS.structure_expiration"
+                                    name="structure_expiration">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-dollar text-info"></i> Currency</label>
+                            <div class="col-lg-9">
+                                <!-- (change)="selectChange($event.target.value)" -->
+                                <select [(value)]="newS.currency" class="form-control" size="0">
+                                    <option value="USD">($) Dollar</option>
+                                    <option value="EUR">(€) Euro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-map-pin text-info"></i> Street</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_street"
+                                    name="structure_street">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-map-pin text-info"></i> Zipcode</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_zipcode"
+                                    name="structure_zipcode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-map-pin text-info"></i> City</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_city"
+                                    name="structure_city">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-map-pin text-info"></i> Region</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_region"
+                                    name="structure_region">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-map-pin text-info"></i> Country</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_country"
+                                    name="structure_country">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">
+                                <i class="fa fa-phone text-info"></i> Phone</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [(ngModel)]="newS.structure_phone"
+                                    name="structure_phone">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="save_changes()">
+                        Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <div class="card-header">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+            <app-button [btnNew]="btnNew" [new]="new" [btnRefresh]="btnRefresh" [refresh]="refresh">
+            </app-button>
+        </div>
+        <div class="card-body">
+
+            <div class="card-columns">
+                <div *ngFor="let s of structureList; let i = index">
+                    <div class="card mb-3" style="width: 15rem;" [ngClass]="{    'bg-primary': s.structure_name == selectedStructure,
+                                    'bg-secondary': s.structure_name != selectedStructure }" (click)="setActive(i)">
+                        <img class="card-img-top center mt-2" src="assets/img/store.png" style="width: 30%;"
+                            alt="Store image cap">
+                        <div class="card-header center w-100">{{ s.structure_name }} ({{s.structure_id}})</div>
+                        <div class="card-body">
+                            <ng-template #popContent>
+                                email: {{ s.structure_email }}<br>
+                                contract: {{ s.structure_contract }}<br>
+                                activation: {{ s.structure_activation | date }}<br>
+                                expiration: {{ s.structure_expiration | date }}<br>
+                                currency: {{ s.currency }}<br>
+                                street: {{ s.structure_street }}<br>
+                                zipcode: {{ s.structure_zipcode }}<br>
+                                city: {{ s.structure_city }}<br>
+                                region: {{ s.structure_region }}<br>
+                                country: {{ s.structure_country }}<br>
+                                phone: {{ s.structure_phone }}
+                            </ng-template>
+                            <ng-template #popTitle>Details</ng-template>
+                            <button type="button" class="btn btn-outline-dark btn-sm center mb-2"
+                                [ngbPopover]="popContent" [popoverTitle]="popTitle" container="body">
+                                Details
+                            </button>
+
+                            <button class="btn btn-primary center" type="button" (click)="setActive(i)">Set
+                                active</button>
+                            <!-- <a href="#" class="btn btn-primary center" click="setActive(i)">Set active</a> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-3" style="width: 15rem;" [ngClass]="{ 'bg-secondary': true }" (click)="new()">
+                    <img class="card-img-top center mt-2" src="assets/img/plus.png" style="width: 30%;"
+                        alt="Store image cap">
+                    <div class="card-header text-center w-100">New Structure</div>
+                    <div class="card-body"
+                        data-intro="Create a new Structure or Establishment.<br>Fill in required fields."
+                        data-position='right' data-step="1">
+                        <button type="button" class="btn btn-outline-dark btn-sm center mb-2" (click)="new()">
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

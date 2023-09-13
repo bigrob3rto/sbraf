@@ -1,0 +1,1016 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@coreui/coreui-free-angular-admin-template documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@coreui/coreui-free-angular-admin-template documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>OrderCacheService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/service/cache.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#key">key</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#storeArr">storeArr</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#stores">stores</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#add">add</a>
+                            </li>
+                            <li>
+                                <a href="#get">get</a>
+                            </li>
+                            <li>
+                                <a href="#getKey">getKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getStrId">getStrId</a>
+                            </li>
+                            <li>
+                                <a href="#info">info</a>
+                            </li>
+                            <li>
+                                <a href="#invalidate">invalidate</a>
+                            </li>
+                            <li>
+                                <a href="#match">match</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(lz: LZStringService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service/cache.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>lz</td>
+                                                  
+                                                        <td>
+                                                                    <code>LZStringService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="add"></a>
+                    <span class="name">
+                        <b>
+                            add
+                        </b>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>add(value, start, stop)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/service/cache.service.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>Cache update
+Check if new values are in cache
+if not, then update cache with new values
+Preserve old values</p>
+<p>return updated array from cache</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>start</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>stop</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Order.html" target="_self" >Order[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <b>
+                            get
+                        </b>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>get(start?, stop?)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/service/cache.service.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>Get values from cache
+Select by start,stop range
+without arguments, return whole cache</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>start</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>stop</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getKey"></a>
+                    <span class="name">
+                        <b>
+                            getKey
+                        </b>
+                        <a href="#getKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getKey()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/service/cache.service.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>Store Factory</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStrId"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getStrId
+                        </b>
+                        <a href="#getStrId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStrId()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/service/cache.service.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="info"></a>
+                    <span class="name">
+                        <b>
+                            info
+                        </b>
+                        <a href="#info"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>info()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">src/app/service/cache.service.ts:229</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>Get info from cache</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="invalidate"></a>
+                    <span class="name">
+                        <b>
+                            invalidate
+                        </b>
+                        <a href="#invalidate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>invalidate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/service/cache.service.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>clear cache</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="match"></a>
+                    <span class="name">
+                        <b>
+                            match
+                        </b>
+                        <a href="#match"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>match(start, stop)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">src/app/service/cache.service.ts:159</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><hr>
+<p>Check if new request can be served by cache
+If cache should be extended, suggest new start,stop range</p>
+<p>return value = true if can be served by cache</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>start</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>stop</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ start: any; stop: any; value: boolean; }</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="key"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            key</b>
+                            <a href="#key"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;order&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/service/cache.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="storeArr"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            storeArr</b>
+                            <a href="#storeArr"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>String[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service/cache.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stores"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            stores</b>
+                            <a href="#stores"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;number | string&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/service/cache.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, isDevMode } from &#x27;@angular/core&#x27;;
+import { LZStringService } from &#x27;ng-lz-string&#x27;;
+import { Order } from &#x27;../prod-table/order/order-table.component&#x27;;
+import { AwsService } from &#x27;./aws.service&#x27;;
+
+// compare, find minimum
+function strMin(a, b) {
+    return a &lt;&#x3D; b ? a : b;
+}
+
+// compare, find maximum
+function strMax(a, b) {
+    return a &gt;&#x3D; b ? a : b;
+}
+
+// check if n is in range(a,b)
+function between(n, a, b) {
+    const res &#x3D; (n &gt;&#x3D; a) &amp;&amp; (n &lt;&#x3D; b);
+    return res;
+}
+
+// check if 2 ranges overlap
+function overlap(d1, d2, n1, n2) {
+    const cond1 &#x3D; between(d1, n1, n2);
+    const cond2 &#x3D; between(d2, n1, n2);
+    const cond3 &#x3D; (n1 &gt;&#x3D; d1 &amp;&amp; n2 &lt;&#x3D; d2);
+    return cond1 || cond2 || cond3;
+}
+
+
+@Injectable({
+    providedIn: &#x27;root&#x27;,
+})
+
+export class OrderCacheService {
+    // private orders : Order[] &#x3D; [];
+    private key &#x3D; &#x27;order&#x27;;
+    private storeArr: String[] &#x3D; [];
+
+    constructor(private lz: LZStringService) { }
+
+    private stores: Map&lt;number, string&gt; &#x3D; new Map();
+    /*****************************************************
+     * Store Factory
+     */
+    getKey(): string {
+        const structureID &#x3D; this.getStrId();
+        structureID ? null : console.error(&quot;OrderService StructureId undefined&quot;);
+        
+        if (this.stores.has(structureID))
+            return this.stores.get(structureID);
+
+        // create new
+        this.stores.set(structureID, &quot;order_&quot; + structureID);
+    }
+
+
+    private getStrId(): number {
+        if (sessionStorage.length &#x3D;&#x3D; 0 || sessionStorage.getItem(&#x27;store&#x27;) &#x3D;&#x3D; undefined)  // array empty
+            return undefined;
+        return JSON.parse(sessionStorage.getItem(&#x27;store&#x27;)).id;
+    }
+
+    /*************************************************************
+     *   Cache update
+     * Check if new values are in cache
+     * if not, then update cache with new values
+     * Preserve old values
+     * 
+     * return updated array from cache
+     * */
+    add(value, start, stop): Order[] {
+
+        // get key of current structure
+        const key &#x3D; this.getKey();
+        // get saved order image
+        let order_img &#x3D; JSON.parse(sessionStorage.getItem(key));
+        let result: Order[];
+
+        // if image already in cache, then update
+        if (order_img &amp;&amp; overlap(order_img.start, order_img.stop, start, stop)) {
+
+            // get image content
+            let cache_orders &#x3D; JSON.parse(this.lz.decompress(order_img.value));
+            // map to order ID array
+            const orderIDs &#x3D; cache_orders.map(o &#x3D;&gt; o.item_order_id);
+
+            // if a new order is not included, then concatenate
+            value.forEach(order &#x3D;&gt; {
+                if (!orderIDs.includes(order.item_order_id))
+                    cache_orders &#x3D; cache_orders.concat(order);
+            });
+            /***** IMAGE ************ */
+            order_img &#x3D; {
+                start: strMin(start, order_img.start),       // extend
+                stop: strMax(stop, order_img.stop),          // extend
+                value: this.lz.compress(JSON.stringify(cache_orders))
+            }
+            // return new array
+            result &#x3D; cache_orders;
+        }
+        else {
+            /***** IMAGE ************ */
+            order_img &#x3D; {
+                start: start,
+                stop: stop,
+                value: this.lz.compress(JSON.stringify(value))
+            }
+            result &#x3D; value;
+        }
+        sessionStorage.setItem(key, JSON.stringify(order_img));
+        console.log(&quot;Cache update &quot; + order_img.start + &quot; &quot; + order_img.stop);
+        return result;
+    }
+
+    /**************************** 
+     * Get values from cache
+     * Select by start,stop range
+     * without arguments, return whole cache
+    */
+    get(start?, stop?): any {
+        // get key of current structure
+        const key &#x3D; this.getKey();
+        // load image
+        const order_img &#x3D; JSON.parse(sessionStorage.getItem(key));
+        //load orders
+        const orders &#x3D; JSON.parse(this.lz.decompress(order_img.value));
+
+        if (!start || !stop) {
+            console.log(&quot;Served from cache &quot; + orders.length + &quot; orders.&quot;);
+            return orders;
+        }
+
+        // filter upn request
+        const ret_orders &#x3D; orders.filter(o &#x3D;&gt; (
+            o.item_timestamp.substring(0, 10) &gt;&#x3D; start &amp;&amp; o.item_timestamp.substring(0, 10) &lt;&#x3D; stop)
+        );
+
+        console.log(&quot;Served from cache &quot; + ret_orders.length + &quot; orders.&quot;);
+        return ret_orders;
+    }
+
+    /*************************************** 
+     * clear cache
+    */
+    invalidate() {
+        // get key of current structure
+        const key &#x3D; this.getKey();
+        sessionStorage.removeItem(key);
+
+    }
+
+    /*************************************************
+     * Check if new request can be served by cache
+     * If cache should be extended, suggest new start,stop range
+     * 
+     * return value &#x3D; true if can be served by cache
+     */
+    match(start, stop) {
+        // get key of current structure
+        const key &#x3D; this.getKey();
+        // default assignment
+        let check &#x3D; {
+            start: null,
+            stop: null,
+            value: false
+        }
+
+
+        // load image
+        // if cache empty, request cannot be served by cache
+        const order_img &#x3D; JSON.parse(sessionStorage.getItem(key));
+        if (!order_img)   // check if exist
+            return check;
+
+        // if ranges do not overlap, request cannot be served by cache
+        check.value &#x3D; overlap(order_img.start, order_img.stop, start, stop);
+        if (!check.value)   // check if exist
+            return check;
+
+        // check if low limit can be extended
+        // suggest new range
+        // return false - request cannot be served by cache
+        if (start &lt; order_img.start)
+            check &#x3D; {
+                start: start,
+                stop: order_img.start,
+                value: false
+            }
+
+        // check if high limit can be extended
+        // suggest new range
+        // return false - request cannot be served by cache
+        if (stop &gt; order_img.stop)
+            check &#x3D; {
+                start: order_img.stop,
+                stop: stop,
+                value: false
+            }
+
+        // check if both limits can be extended
+        // suggest new range
+        // return false - request cannot be served by cache
+        if (start &lt; order_img.start &amp;&amp; stop &gt; order_img.stop) {
+            check &#x3D; {
+                start: start,
+                stop: stop,
+                value: false
+            }
+        }
+
+        // check if both limits are ok
+        // request range is ok
+        // return true - request CAN be served by cache
+        if (start &gt;&#x3D; order_img.start &amp;&amp; stop &lt;&#x3D; order_img.stop) {
+            check &#x3D; {
+                start: start,
+                stop: stop,
+                value: true
+            }
+        }
+
+        return check;
+    }
+
+    /**************************** 
+     * Get info from cache
+    */
+    info(): any {
+        // get key of current structure
+        const key &#x3D; this.getKey();
+        return JSON.parse(sessionStorage.getItem(key));
+    }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrderCacheService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

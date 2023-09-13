@@ -1,0 +1,124 @@
+<div class="animated fadeIn" *ngIf="!isUserLogged()">
+    <h1 style="text-align: center;">Please
+        <a href="#/login">log in</a> to use this feature.
+    </h1>
+</div>
+<div class="animated fadeIn" *ngIf="isUserLogged()">
+    <div class="card-deck">
+        <div class="card">
+            <app-mcfilter #mcfilter (menuSelect)="onMenuSelect($event)" (categorySelect)="onCategorySelect($event)">
+            </app-mcfilter>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Date range</div>
+            <div class="card-body">
+                <app-daterange></app-daterange>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Load data</div>
+            <div class="card-body">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" data-toggle="tooltip" data-placement="bottom"
+                        title="Load remote data">View</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation dialog for unsaved data -->
+    <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Unsaved data</h4>
+                    <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Unsaved data in your table. Changes will be lost&hellip; <br>Sure to proceed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="modalCancel()">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="modalProceed()">Proceed</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+    <div class=" row">
+
+        <div class="card" style="width: 100%;" id="pdfImg">
+            <div class="card-header">
+                <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+                <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+                <i *ngIf="unsaved" class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i>
+                <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh" [refresh]="refresh"
+                    [btnSave]="btnSave" [saveTable]="saveTable" [btnExport]="btnExport" [export]="export">
+                </app-button>
+
+                <!-- Progress BAR -->
+                <div class="row" *ngIf="pb_current<=100">
+                    <div class="progress" style="width: 100%;">
+                        <div class="progress-bar" role="progressbar" [style.width]="pb_current + '%'" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                            {{pb_current | number : '1.1-1'}}%</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+
+                <tabset (click)="confirmTabSwitch($event)">
+                    <tab heading="Matrix Charts" [active]="true" (select)="onSelect($event)">
+                        <div style="text-align: center; padding-bottom: 20px;">
+                            <h2>{{categorySelected}}</h2>
+                        </div>
+                        <app-matrixchart [menuSelected]="mcfilter.menuSelected"
+                            [categorySelected]="mcfilter.categorySelected">
+                        </app-matrixchart>
+                    </tab>
+                    <tab heading="Dish Explorer">
+                        <div style="text-align: center; padding-bottom: 20px;">
+                            <h2>{{categorySelected}}</h2>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent" data-html2canvas-ignore="true"
+                                (click)="canvasReport($event)" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                            <app-eng-totals></app-eng-totals>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="fa fa-heart-o border-0 ml-auto  bg-transparent" data-html2canvas-ignore="true"
+                                (click)="canvasReport($event)" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                            <ag-grid-angular #agGrid style="width: 110%;" [ngClass]="theme" [rowData]="rowData"
+                                [columnDefs]="columnDefs" [animateRows]="true" [enterMovesDown]="true"
+                                [paginationAutoPageSize]=false [defaultColDef]="defaultColDef" [singleClickEdit]="true"
+                                [enterMovesDownAfterEdit]="true" [pagination]="true"
+                                [getContextMenuItems]="getContextMenuItems" [enableCellTextSelection]="true"
+                                [domLayout]="domLayout" (cellValueChanged)="onCellValueChanged($event)"
+                                (firstDataRendered)="onFirstDataRendered($event)"
+                                (gridSizeChanged)="onGridSizeChanged($event)" (gridReady)="onGridReady($event)">
+                            </ag-grid-angular>
+                        </div>
+                    </tab>
+                    <!-- Hidden tab -->
+                    <tab [active]="false" hidden>
+                        <app-newprice></app-newprice>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>

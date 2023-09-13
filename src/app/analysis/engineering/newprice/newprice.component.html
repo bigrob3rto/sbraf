@@ -1,0 +1,7 @@
+<ag-grid-angular #agGrid style="width: 100%; " class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs"
+    [animateRows]="true" [enterMovesDown]="true" [paginationAutoPageSize]=false [singleClickEdit]="false"
+    [enterMovesDownAfterEdit]="true" [pagination]="true" [enableCellTextSelection]="true"
+    [getContextMenuItems]="getContextMenuItems" [pinnedBottomRowData]="pinnedBottomRowData" [getRowStyle]="getRowStyle"
+    [domLayout]="domLayout" (cellValueChanged)="onCellValueChanged($event)" (gridReady)="onGridReady($event)"
+    (gridSizeChanged)="onGridSizeChanged($event)">
+</ag-grid-angular>

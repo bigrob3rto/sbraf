@@ -1,0 +1,11 @@
+// Here you can add other styles
+@import "../../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../../node_modules/ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "../../node_modules/ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+
+@import "../../node_modules/ag-grid-community/dist/styles/ag-theme-blue.css";
+
+// Fonts
+.ag-header-group-cell ,.ag-header-cell-label, .ag-row{
+    font-size: 12px;
+}
