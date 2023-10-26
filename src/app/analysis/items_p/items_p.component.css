@@ -1,0 +1,30 @@
+tr:nth-child(even) {
+    background: #ddd
+}
+
+tr:nth-child(odd) {
+    background: #FFF
+}
+
+th, tr {
+    height: 30px;
+    font-size: 12px;
+    font-family: 'Roboto';
+}
+
+
+td {
+    width: 150px;
+}
+
+.dropdown-menu {
+    max-height: 600px;
+    /*Provide height in pixels or in other units as per your layout*/
+    overflow-y: auto;
+    /*Provide an auto overflow to display scroll*/
+}
+
+.card {
+    padding: 5px;
+    margin: 10px;
+}

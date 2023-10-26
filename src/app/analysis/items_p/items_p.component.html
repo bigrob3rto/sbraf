@@ -1,0 +1,102 @@
+<div class="animated fadeIn">
+
+    <div class="card-deck">
+
+        <div class="card">
+            <div class="card-header">Category</div>
+            <div class="card-body">
+                <div class="row pb-0 mx-3">
+                    <div class="nav-item dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="tooltip" data-placement="bottom"
+                            title="Each menu contains a set of products and their prices" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" (click)="reloadCategoryContent();">
+                            {{ categorySelected }}
+                            <i class="fa fa-spinner fa-spin" *ngIf="cat_loading"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li *ngFor="let c of categoryMenuHeader; let i = index" (click)="onCategorySelect(i);">
+                                <a class="dropdown-item btn-sm" role="button">{{ c.name }}
+                                    <span class="badge badge-light">{{c.productXcategory}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Month Range</div>
+            <div class="card-body">
+                <month-picker (monthRangeSelected)="logRange($event)"></month-picker>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Load data</div>
+            <div class="card-body">
+                <div style="text-align: center; vertical-align: middle;"><br>
+                    <button class="btn btn-success" (click)="refresh()" [disabled]="loading" data-toggle="tooltip"
+                        data-placement="bottom" title="Load remote data">View
+                        <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <div class="card" style="width: 100%;" id="pdfImg">
+            <div class="card-header">
+
+                <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+                <i *ngIf="!loading" class="fa fa-shopping-basket" aria-hidden="true"></i> {{title}}
+                <app-button [btnPrint]="btnPrint" [print]="print" [btnRefresh]="btnRefresh" [refresh]="refresh">
+                </app-button>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{ categorySelected }}</th>
+                            <th scope="col">Prezzo</th>
+                            <th scope="col">Food Cost Unitario</th>
+                            <th scope="col">Contribuzione</th>
+
+                            <th scope="col" *ngFor="let m of months">
+                                {{ m.month }}
+                            </th>
+                            <th scope="col">QT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let s of statTable | keyvalue">
+                            <td>{{ s.value.name }}</td>
+                            <td>{{ s.value.price | currency:'EUR' }}</td>
+                            <td>{{ s.value.fcs | currency:'EUR'}}</td>
+                            <td>{{ s.value.contrib | currency :'EUR' : 'symbol' :'1.2-2'}}</td>
+                            <td scope="col" *ngFor="let m of months">
+                                {{ s.value[m.month] }}
+                            </td>
+                            <td>{{ s.value.qty }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
