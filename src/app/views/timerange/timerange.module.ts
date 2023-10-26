@@ -8,19 +8,18 @@ import { TimeRangeComponent } from './timerange.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NgbModule ,
-    FormsModule
-  ],
-  declarations: [
-    TimeRangeComponent,
-    NgbdTimepickerComponent,
-  ],
-  exports: [
-    TimeRangeComponent,
-    NgbdTimepickerComponent,
-  ],
-  entryComponents: [NgbdTimepickerComponent],
+    imports: [
+        CommonModule,
+        NgbModule,
+        FormsModule
+    ],
+    declarations: [
+        TimeRangeComponent,
+        NgbdTimepickerComponent,
+    ],
+    exports: [
+        TimeRangeComponent,
+        NgbdTimepickerComponent,
+    ]
 })
 export class TimeRangeModule { }

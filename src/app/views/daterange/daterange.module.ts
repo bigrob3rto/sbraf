@@ -9,20 +9,19 @@ import { DateRangeComponent } from './daterange.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AgGridModule.withComponents([]),
-    NgbModule ,
-    FormsModule
-  ],
-  declarations: [
-    DateRangeComponent,
-    AgGridDatePickerComponent
-  ],
-  exports: [
-    DateRangeComponent,
-    AgGridDatePickerComponent
-  ],
-  entryComponents: [AgGridDatePickerComponent],
+    imports: [
+        CommonModule,
+        AgGridModule.withComponents([]),
+        NgbModule,
+        FormsModule
+    ],
+    declarations: [
+        DateRangeComponent,
+        AgGridDatePickerComponent
+    ],
+    exports: [
+        DateRangeComponent,
+        AgGridDatePickerComponent
+    ]
 })
 export class DateRangeModule { }

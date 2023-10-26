@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { TableLib } from '../../../prod-table/lib/table-lib';
 
@@ -15,11 +15,11 @@ export class NewMenuComponent implements OnInit {
   @Input() startDate;
   @Input() endDate;
 
-  menuForm = new FormGroup({
-    menu_name: new FormControl(''),
-    menu_from: new FormControl(''),
-    menu_to: new FormControl(''),
-    menu_description: new FormControl('')
+  menuForm = new UntypedFormGroup({
+    menu_name: new UntypedFormControl(''),
+    menu_from: new UntypedFormControl(''),
+    menu_to: new UntypedFormControl(''),
+    menu_description: new UntypedFormControl('')
   });
 
   ngOnInit(): void {
