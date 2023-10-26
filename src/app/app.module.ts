@@ -69,7 +69,7 @@ import { TimeRangeModule } from './views/timerange/timerange.module';
     FormsModule,
     LZStringModule,
     DateRangeModule,
-    TimeRangeModule
+    TimeRangeModule,
   ],
   declarations: [
     AppComponent,

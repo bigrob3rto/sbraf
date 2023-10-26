@@ -64,9 +64,20 @@ export const navItems: INavData[] = [
   name: 'Categories',
     url: '/data/categories_p',
     icon: 'icon-doc',
-    attributes: { disabled: true },
+    attributes: { disabled: false },
 },
-
+{
+  name: 'Items',
+    url: '/data/items_p',
+    icon: 'icon-note',
+    attributes: { disabled: false },
+},
+{
+  name: 'Aggregati',
+    url: '/data/aggregati',
+    icon: 'icon-bag',
+    attributes: { disabled: false },
+},
 {
   divider: true
 },

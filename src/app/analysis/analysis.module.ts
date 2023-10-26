@@ -41,6 +41,9 @@ import { FeatureSelectionComponent } from './item_perf/feature_selection/feature
 import { ForecastComponent } from './forecast/forecast.component';
 import { categories_pComponent } from './categories_p/categories_p.component';
 import { TimeRangeModule } from '../views/timerange/timerange.module';
+import { items_pComponent } from './items_p/items_p.component';
+import { MonthPickerComponent } from '../views/month-picker/month-picker.component';
+import { AggregatiComponent } from './aggregati_p/aggregati.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,10 @@ import { TimeRangeModule } from '../views/timerange/timerange.module';
     ItemPerformanceComponent,
     FeatureSelectionComponent,
     ForecastComponent,
-    categories_pComponent
+    categories_pComponent,
+    items_pComponent,
+    MonthPickerComponent,
+    AggregatiComponent
   ],
   imports: [
     CommonModule,
@@ -119,7 +125,9 @@ import { TimeRangeModule } from '../views/timerange/timerange.module';
     ItemPerformanceComponent,
     FeatureSelectionComponent,
     ForecastComponent,
-    categories_pComponent
+    categories_pComponent,
+    items_pComponent,
+    AggregatiComponent
   ],
   entryComponents: [    IaModalComponent,NgbdModalContent  ],
 })

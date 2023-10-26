@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import Sockette from "sockette";
 import { Signer } from "aws-amplify"
 import { MessageService } from './message.service';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class SocketService {

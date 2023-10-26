@@ -61,15 +61,19 @@
                   "maximumWarning": "6kb"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
+              "optimization": false,
+              "outputHashing": "none",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "showCircularDependencies": false,
               "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
+              "extractLicenses": false,
+              "statsJson": false,
+              "progress": false,
+              "vendorChunk": true,
+              "buildOptimizer": false,
+          
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -139,7 +143,9 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://bigrob3rto.github.io/sbraf/"
+          }
         }
       }
     },

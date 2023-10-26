@@ -17,7 +17,7 @@ import { AgGridDatePickerComponent } from './datepicker.component';
 
 
 export class DateRangeComponent implements OnInit {
-  public date1: NgbDateStruct = { day: 1, month: 5, year: 2010 };  // start date input
+  public date1: NgbDateStruct = { day: 1, month: 5, year: 2020 };  // start date input
   public date2: NgbDateStruct = { day: 11, month: 11, year: 2020 };  // stop date input this.calendar.getToday()
 
   // categorID selected from parent component

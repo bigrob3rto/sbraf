@@ -11,6 +11,8 @@ import { ImportComponent } from './import/import.component';
 import { ItemPerformanceComponent } from './item_perf/item_performance.component';
 import { MenuEditorComponent } from './menu-editor/menu-editor.component';
 import { categories_pComponent } from './categories_p/categories_p.component';
+import { items_pComponent } from './items_p/items_p.component';
+import { AggregatiComponent } from './aggregati_p/aggregati.component';
 
 
 const routes: Routes = [
@@ -89,6 +91,20 @@ const routes: Routes = [
         component: categories_pComponent,
         data: {
             title: 'Categories Performance'
+        }
+    },
+    {
+        path: 'items_p',
+        component: items_pComponent,
+        data: {
+            title: 'Items Performance'
+        }
+    },
+    {
+        path: 'aggregati',
+        component: AggregatiComponent,
+        data: {
+            title: 'Aggregati'
         }
     },
 ];

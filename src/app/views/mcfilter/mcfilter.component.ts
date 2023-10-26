@@ -197,6 +197,7 @@ export class MCFilterComponent implements OnInit, AfterViewInit {
 
       // load all categories
       const catArr: Category[] = await this.awsService.getCategories();
+      
       // map to category ID array
       catByMenu_IDs = menu_products.map(mp => mp.product_category_id);
 

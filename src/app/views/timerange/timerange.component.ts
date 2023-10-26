@@ -13,7 +13,6 @@ export class TimeRangeComponent  {
   public popupParent;
 
   public time = {hour:0, minute:0};
-  public step;
 
 
   constructor() {

@@ -78,9 +78,12 @@ export class AwsService {
 
   getStrId(): number {
     if (sessionStorage.length == 0 || sessionStorage.getItem('store') == undefined)  // array empty
+    {
       return undefined;
+    }
     return JSON.parse(sessionStorage.getItem('store')).id;
   }
+
   getStrName(): string {
     const store = sessionStorage.getItem('store');
     if (store)
@@ -219,6 +222,7 @@ export class AwsService {
         print('getEngineeringV2 ERROR ' + dataName, error);
         this.messageService.show("HTTP request failed." + error.data);
         // this.sessionTimeout();
+        resolve([]);  // return empty
       });
     });
 
@@ -570,9 +574,11 @@ export class AwsService {
   async getCategories(): Promise<Category[]> {
     let retData: Category[];
 
+    let cached_cat = sessionStorage.getItem('categories');
+    //console.log(cached_cat);
     // data is present inside sessionStorage the return immediately
-    if (sessionStorage.getItem('categories')) {
-      retData = JSON.parse(sessionStorage.getItem('categories'));
+    if (cached_cat && cached_cat != "undefined") {
+      retData = JSON.parse(cached_cat);
       // save stats
       const cacheHits = this.globalService.has('cacheHits') ? this.globalService.getItem('cacheHits') + 1 : 1;
       this.globalService.setItem('cacheHits', cacheHits);
@@ -599,14 +605,18 @@ export class AwsService {
           this.globalService.setItem('dbGET', dbGET);
 
           // resolve(retData);
-          if (!categories)
-            reject();
+          if (!categories) {
+            retData = [];
+            //reject();
+            // console.log("getGenericContent finally return", retData);
+            resolve(retData);
+          }
+        }
+        else {
+          retData = [];
+          // console.log("getGenericContent finally return", retData);
           resolve(retData);
         }
-        else
-          retData = [];
-        // console.log("getGenericContent finally return", retData);
-        // resolve(retData);
       }, (error) => {  // error
         print('getCategories ERROR', error);
         this.messageService.show("HTTP request failed " + error.data);

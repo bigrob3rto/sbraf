@@ -212,9 +212,12 @@ export class TableLib {
   }
 
   static exportToCsv(filename: string, rows: object[]) {
+    console.log("export CSV export BLOB problem");""
     if (!rows || !rows.length) {
       return;
     }
+    return;
+    /*
     const separator = ',';
     const keys = Object.keys(rows[0]);
     const csvContent =
@@ -234,8 +237,8 @@ export class TableLib {
       }).join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    if (navigator.msSaveBlob) { // IE 10+
-      navigator.msSaveBlob(blob, filename);
+    if (navigator.msSaveOrOpenBlob) { // IE 10+
+      navigator.msSaveOrOpenBlob(blob, filename);
     } else {
       const link = document.createElement('a');
       if (link.download !== undefined) {
@@ -249,5 +252,6 @@ export class TableLib {
         document.body.removeChild(link);
       }
     }
+    */
   }
 }

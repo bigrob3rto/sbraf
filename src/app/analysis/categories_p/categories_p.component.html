@@ -55,6 +55,41 @@
                 </app-button>
 
             </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">PAC</th>
+                            <th scope="col">ADC</th>
+                            <th scope="col">IGP</th>
+                            <th scope="col">FCP</th>
+                            <th scope="col">FCC</th>
+                            <th scope="col">DISCORDANZA</th>
+                            <th scope="col">INCID POP CATEGORIA</th>
+                            <th scope="col">INCID CONTRIB CATEG</th>
+                            <th scope="col">INCID PRODUZ CATEG</th>
+                            <th scope="col">INCID COSTO CATEG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let s of ht | keyvalue" >
+                            <td>{{ s.key }}</td>
+                            <td>{{ s.value.pac | number : '1.2-2'}}€</td>
+                            <td>{{ s.value.adc | number : '1.2-2'}}€</td>
+                            <td>{{ s.value.igp | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.fcp | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.fcc | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.discordanza | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.i_pop_cat | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.i_contrib_cat | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.i_prod_cat | number : '1.2-2'}}%</td>
+                            <td>{{ s.value.i_cost_cat | number : '1.2-2'}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 
